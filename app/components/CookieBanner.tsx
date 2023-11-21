@@ -16,7 +16,6 @@ export default function CookieBanner() {
   useEffect(() => {
     const newValue = cookieConsent ? 'granted' : 'denied';
 
-    // Utiliza 'gtag' con el evento 'consent' y la información adecuada
     pageview('GA_MEASUREMENT_ID', '/cookie-consent'); // Ajusta 'GA_MEASUREMENT_ID' y la ruta según tu configuración
 
     // Elimina 'ad_storage' y 'analytics_storage' del objeto que se pasa a 'window.gtag'
@@ -28,23 +27,25 @@ export default function CookieBanner() {
   }, [cookieConsent]);
 
   return (
-    <div>
-      <div className='text-center'>
-        <Link href="/info/cookies">
-          <p>We use <span>cookies</span> on our site.</p>
+    <div id='cookie-banner' className={`cookie-banner ${cookieConsent ? "" : "no-banner"}`}>
+      <div id='cookie-banner-text'>
+        <Link href="/cookies">
+          <p>Para una mejor experiencia utilizamos <span>cookies</span> en nuestro sitio.</p>
         </Link>
       </div>
-      <div className='flex gap-2'>
+      <div id='cookie-buttons'>
         <button
-          onClick={() => setCookieConsent(false)}
+          className='accept-cookie cookie-btn'
+          onClick={() => setCookieConsent(true)}
         >
-          Decline
+          Aceptar todas las cookies
         </button>
 
         <button
-          onClick={() => setCookieConsent(true)}
+          className='decline-cookie cookie-btn'
+          onClick={() => setCookieConsent(false)}
         >
-          Allow Cookies
+          Rechazar todas las cookies
         </button>
       </div>
     </div>

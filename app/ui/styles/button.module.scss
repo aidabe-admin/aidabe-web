@@ -1,0 +1,43 @@
+.buttonDefault{
+    height: 2rem;
+    min-width: 5rem;
+    margin-top: 1rem;
+    padding: 0 .5rem;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    transition: background-color .25s ease, color .25s ease;
+    background-color: rgb(226, 230, 235);
+    color: #b81626;
+    cursor: pointer;
+    &:hover{
+      background-color: #1b1d1d;
+      color: #fff;
+    }
+  }
+    
+  .buttonDanger {
+    background-color: #b81626;
+    color: #fff;
+    &:hover{
+      mix-blend-mode: difference;
+      background-color: #5a030c;
+    }
+  }
+  
+  .buttonPositive {
+    background-color: #106b10;
+    color: #fff;
+  }
+  
+  .buttonSlate {
+    background-color: #708090;
+  }
+  
+  @media screen and (min-width: 480px) {
+    .buttonDefault{
+      height: 3rem;
+      min-width: 7.5rem;
+      font-size: 1.05rem;
+    }
+  }

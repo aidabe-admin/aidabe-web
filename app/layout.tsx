@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
-import GoogleAnalytics from './components/GAnalytics';
 import './styles.scss'
-import CookieBanner from './components/CookieBanner';
+
+import GoogleAnalytics from '@/app/components/GAnalytics';
+import CookieBanner from '@/app/components/CookieBanner';
+import Header from '@/app/components/layout/Header';
 
 export const metadata: Metadata = {
   title: 'AIDABE',
@@ -17,6 +19,7 @@ export default function RootLayout({
     <html lang="es">
       <GoogleAnalytics GA_MEASUREMENT_ID={process.env.GA_MEASUREMENT_ID || ""} />
       <body>
+        <Header />
         {children}
         <CookieBanner />
       </body>
