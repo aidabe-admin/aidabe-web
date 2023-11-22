@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import SectionTitle from '@/app/ui/sectionTitle'
 import Button from '@/app/ui/button';
 import Modal from '@/app/ui/modal';
+import Link from 'next/link';
 
 interface Members {
     pic: string;
@@ -73,7 +74,9 @@ export default function Board({board} : Board) {
                         </div>
                     ))}
                 </div>
-                <Button style='danger' text='Conocé más' />
+                <Link href="/asociacion">
+                    <Button style='danger' text='Conocé más' />
+                </Link>
             </div>
             <Modal
                 className={modal ? " active-modal" : ""}

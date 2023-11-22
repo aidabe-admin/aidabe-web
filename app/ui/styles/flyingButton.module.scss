@@ -1,0 +1,24 @@
+.button{
+    width: 3rem;
+    aspect-ratio: 1; 
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    position: fixed;
+    right: 2rem;
+    bottom: -10rem;
+    opacity: .8;
+    transition: opacity .25s ease, bottom .5s ease;
+    background-color: #1d1d1b;
+    &:hover{
+        opacity: 1;
+    }
+    svg{
+        font-size: 1.5rem;
+        color: #fff;
+    }
+}
+
+.activeButton{
+    bottom: 2rem;
+}

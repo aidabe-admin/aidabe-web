@@ -5,6 +5,7 @@ import GoogleAnalytics from '@/app/components/GAnalytics';
 import CookieBanner from '@/app/components/CookieBanner';
 import Header from '@/app/components/layout/Header';
 import Footer from '@/app/components/layout/Footer';
+import FloatingButton from './ui/flyingButton';
 
 export const metadata: Metadata = {
   title: 'AIDABE',
@@ -24,6 +25,7 @@ export default function RootLayout({
         {children}
         <CookieBanner />
         <Footer />
+        <FloatingButton id='to-top-btn' />
       </body>
     </html>
   )

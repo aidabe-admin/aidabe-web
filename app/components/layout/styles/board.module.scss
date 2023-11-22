@@ -40,3 +40,37 @@
         }
     }
 }
+
+@media screen and (min-width: 768px) {
+    .board_cont{
+        padding: 2rem 4rem;
+        .boardDetails_cont{
+            .boardDetails{
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .board_cont{
+        padding: 3rem 8rem;
+        gap: 1.5rem;
+        .boardDetails_cont{
+            .boardDetails{
+                font-size: 1.3rem;
+            }
+        }
+        .boardLayout_cont{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .boardSubtitle{
+                font-size: 1.66rem;
+            }
+            .boardLayout{
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    }
+}
