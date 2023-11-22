@@ -32,11 +32,21 @@ export default function Header() {
     ];
     const [menu, setMenu] = useState(false);
     const [burger, setBurger] = useState(false);
+    const [scrollPercentage, setScrollPercentage] = useState(0);
 
     const handleMenu = () => {
         setMenu(!menu)
         setBurger(!burger)
     }
+
+    const handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const bodyHeight = document.body.clientHeight - windowHeight;
+        const percentage = (scrollPosition / bodyHeight) * 100;
+
+        setScrollPercentage(percentage);
+    };
 
     useEffect(() => {
         if (menu) {
@@ -45,6 +55,13 @@ export default function Header() {
             document.body.style.overflow = 'auto';
         }
     }, [menu]);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return(
         <>
@@ -63,7 +80,7 @@ export default function Header() {
                     <ul id="main-navlist">
                         {navlinks.map((navlink) => (
                             <li key={navlink.title} className="main-navlink">
-                                <Link href={`/${navlink.link}`}>
+                                <Link href={navlink.link}>
                                     {navlink.title}
                                 </Link>
                             </li>
@@ -71,6 +88,9 @@ export default function Header() {
                     </ul>
                 </nav>
             </header>
+            <div id="progress-bar">
+                <div className="progress-indicator" style={{ width: `${scrollPercentage.toFixed(2)}%` }} />
+            </div>
             <Menu navlinks={navlinks} openMenu={menu} />
         </>
     )

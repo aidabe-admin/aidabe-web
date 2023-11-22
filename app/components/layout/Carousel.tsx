@@ -94,7 +94,7 @@ export default function Slider({ content }: SliderProps) {
                     </div>
                 </div>
             ) : (
-                <div className={styles.mainCarousel_LgContainer}>
+                <div className={styles.mainCarouselContainer_Lg}>
                     <div className={styles.mainCarousel_Lg}>
                         <div className={styles.carousel_Lg}>
                             <Image
@@ -115,7 +115,13 @@ export default function Slider({ content }: SliderProps) {
                                             className={`${styles.slide} ${index === activeSlide ? styles.activeSlide_Lg : ""}`}
                                             style={{ width: `${slideWidth}%` }}
                                         >
-                                            <p>{slide.title}</p>
+                                            <h4 className={styles.slideTitle_Lg}>{slide.title}</h4>
+                                            <p className={styles.slideSubtitle_Lg}>{slide.subtitle}</p>
+                                            {slide.link && slide.button && (
+                                                <Link href={slide.link} className={styles.slideButton_Lg}>
+                                                    <Button style="danger" text={slide.button} />
+                                                </Link>
+                                            )}
                                         </div>
                                     ))}
                                 </div>
@@ -132,8 +138,8 @@ export default function Slider({ content }: SliderProps) {
                                     ))}
                                 </div>
                             </div>
+                    </div>
                 </div>
-            </div>
         )}
         </>
     );

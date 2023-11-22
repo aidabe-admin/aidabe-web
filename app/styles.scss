@@ -27,7 +27,9 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
         background-color: $aidabe-white;
         z-index: 5;
         #header-logo-cont{
@@ -37,15 +39,22 @@ body{
         }
         #main-nav{
             display: none;
-            #main-navlist{
-                display: flex;
-                gap: .5rem;
-                .main-navlink{
-                    text-transform: uppercase;
-                }
-            }
         }
     }
+    #progress-bar {
+        position: fixed;
+        top: 5rem;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ddd;
+        z-index: 9999;
+        .progress-indicator {
+          height: 100%;
+          background-color: $aidabe-red;
+          transition: width 0.1s ease-out;
+        }
+      }
     .burger-menu{
         height: 2rem;
         aspect-ratio: 1/1;
@@ -146,7 +155,7 @@ body{
 
     //Main
     .main-wrapper{
-        opacity: 1;
+        margin-top: 5rem;
     }
 
     //Cookie-banner
@@ -220,6 +229,29 @@ body{
     body{
         #main-header{
             padding: 0 8rem;
+            #main-nav{
+                display: flex;
+                #main-navlist{
+                    display: flex;
+                    gap: .5rem;
+                    .main-navlink{
+                        padding: 7px;
+                        border-radius: 10px;
+                        text-transform: uppercase;
+                        transition: background-color .5s ease, color .5s ease;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: $aidabe-red;
+                            a{
+                                color: $aidabe-white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .burger-menu, .menu{
+            display: none;
         }
     }
 }
