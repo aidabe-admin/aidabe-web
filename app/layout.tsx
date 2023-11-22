@@ -4,6 +4,7 @@ import './styles.scss'
 import GoogleAnalytics from '@/app/components/GAnalytics';
 import CookieBanner from '@/app/components/CookieBanner';
 import Header from '@/app/components/layout/Header';
+import Footer from '@/app/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'AIDABE',
@@ -22,6 +23,7 @@ export default function RootLayout({
         <Header />
         {children}
         <CookieBanner />
+        <Footer />
       </body>
     </html>
   )

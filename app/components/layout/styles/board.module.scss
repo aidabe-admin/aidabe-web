@@ -1,0 +1,42 @@
+.board_cont{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    .boardLayout_cont{
+        margin-top: 1rem;
+        display: grid;
+        gap: 1.5rem;
+        overflow: hidden;
+        .boardSubtitle{
+            // transform: translateY(150%);
+            transition: transform .5s ease;
+            font-size: 1.3rem;
+            text-align: center;
+            font-family: massilia, sans-serif;
+            font-weight: 900;        
+        }
+        .boardLayout{
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            .boardMember{
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                align-items: center;
+                .boardMember_image{
+                    width: 100%;
+                    aspect-ratio: 1;
+                    position: relative;
+                }
+                .boardMember_cont{
+                    .boardMember_name{
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

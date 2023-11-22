@@ -1,0 +1,26 @@
+@import url("https://use.typekit.net/pbl0ugx.css");
+$aidabe-red: #b81626;
+$aidabe-black: #1d1d1b;
+$aidabe-white: #fff;
+
+.sectionTitle_cont{
+    overflow: hidden;
+    .sectionTitle{
+        // transform: translateY(150%);
+        transition: transform .5s ease;
+        font-size: 2rem;
+        font-family: massilia, sans-serif;
+        font-weight: 900;        
+    }
+    .sectionTitle_White{
+        color: $aidabe-white;        
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .sectionTitle_cont{
+        .sectionTitle{
+            font-size: 2.6rem;
+        }
+    }
+}
