@@ -5,20 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 const sections = [
-    { title: "Nosotros", href: "/nosotros" },
+    { title: "Actualidad", href: "/actualidad" },
+    { title: "La asociación", href: "/asociacion" },
+    { title: "Asociados", href: "/asociados" },
+    { title: "Eventos", href: "/eventos" },
+    { title: "Contacto", href: "/contacto" },
     // { title: "Portal de Trabajo", href: "/portal-de-trabajo" },
-    { title: "Blog", href: "/blog" }
 ];
 
 const legals = [
-    { title: "Política de privacidad", href: "/política-de-privacidad" },
+    { title: "Política de privacidad", href: "/politica-de-privacidad" },
     { title: "Cookies", href: "/cookies" },
     { title: "Aviso legal", href: "/aviso-legal" }
 ];
 
 export default function Footer() {
     return(
-        <footer>
+        <footer className="footer">
             <div id="footer-logo-container">
                 <Image
                     src='/aidabe-round-red-logo.png'

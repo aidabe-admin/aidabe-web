@@ -26,10 +26,38 @@
                 flex-direction: column;
                 gap: .5rem;
                 align-items: center;
-                .boardMember_image{
+                .boardMember_imageCont{
                     width: 100%;
                     aspect-ratio: 1;
+                    display: flex;
                     position: relative;
+                    cursor: pointer;
+                    .boardMember_image{
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                    }
+                    .seeMore_cont{
+                        width: 100%;
+                        height: 100%;
+                        display: grid;
+                        place-content: center;
+                        position: absolute;
+                        opacity: 0;
+                        transition: all .25s ease;
+                        .seeMore_member{
+                            font-size: 1rem;
+                            text-transform: uppercase;
+                            font-family: massilia, sans-serif;
+                            font-weight: 900;
+                            transition: opacity .5s ease;
+                            color: #fff;
+                        }
+                        &:hover{
+                            opacity: 1;
+                            background-color: rgba(183, 21, 38, .5);
+                        }
+                    }
                 }
                 .boardMember_cont{
                     .boardMember_name{
@@ -37,6 +65,10 @@
                     }
                 }
             }
+        }
+        .linkBtn{
+            display: flex;
+            justify-content: center;
         }
     }
 }
@@ -70,6 +102,16 @@
             }
             .boardLayout{
                 grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .board_cont{
+        .boardLayout_cont{
+            .boardLayout{
+                gap: 2rem;
             }
         }
     }

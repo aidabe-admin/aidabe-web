@@ -33,7 +33,6 @@ export default function Board({board} : Board) {
     const [modal, setModal] = useState(false);
 
     useEffect(() => {
-        const mainElement = document.querySelector('main')
         if (modal) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -60,13 +59,18 @@ export default function Board({board} : Board) {
                 <div className={styles.boardLayout}>
                     {board.map((member, index) => (
                         <div className={styles.boardMember} key={index} onClick={() => handleMemberClick(member)}>
-                            <div className={styles.boardMember_image}>
-                                <Image
-                                    alt={`Foto de perfil de ${member.name}`}
-                                    src={member.pic}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                />
+                            <div className={styles.boardMember_imageCont}>
+                                <div className={styles.boardMember_imageCont}>
+                                    <Image
+                                        alt={`Foto de perfil de ${member.name}`}
+                                        src={member.pic}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
+                                </div>
+                                <div className={styles.seeMore_cont}>
+                                    <p className={styles.seeMore_member}>Ver más</p>
+                                </div>
                             </div>
                             <div className={styles.boardMember_cont}>
                                 <h4 className={styles.boardMember_name}>{member.name}</h4>
@@ -74,7 +78,7 @@ export default function Board({board} : Board) {
                         </div>
                     ))}
                 </div>
-                <Link href="/asociacion">
+                <Link href="/asociacion" className={styles.linkBtn}>
                     <Button style='danger' text='Conocé más' />
                 </Link>
             </div>

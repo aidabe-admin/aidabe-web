@@ -107,6 +107,13 @@
                 .slideData{
                     width: calc(100dvw - 8rem);
                     margin: 5rem 4rem;
+                    grid-template-rows: 3rem auto;
+                    .slideTitle{
+                        font-size: 2.3rem;
+                    }
+                    .slideSubtitle{
+                        font-size: 1.5rem;
+                    }
                 }
             }
         }
@@ -114,75 +121,14 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .mainCarouselContainer_Lg{
-        width: 100%;
-        height: 66dvh;
-        padding: 0 8rem;
-        display: flex;
-        align-items: center;
-        .mainCarousel_Lg{
-            width: 100%;
-            display: grid;
-            grid-template-columns: 7fr 5fr;
-            align-items: center;
-            gap: 2rem;
-            .carousel_Lg{
-                aspect-ratio: 16/9;
-                position: relative;
-            }
-            .slideData_Lg{
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                overflow: hidden;
-                .dataCarousel{
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    .slide{
-                        min-width: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        gap: .25rem;
-                        *{
-                            transition: opacity .66s ease;
-                            opacity: 0;
-                        }
-                        .slideTitle_Lg{
-                            font-size: 1.95rem;
-                        }
-                        .slideSubtitle_Lg{
-                            font-size: 1.2rem;
-                            transition-delay: .33s;
-                        }
-                        .slideButton_Lg{
-                            transition-delay: .66s;
-                        }
-                    }
-                    .activeSlide_Lg{
-                        *{
-                            opacity: 1;
-                        }
-                    }
-                }
-                .dots{
-                    width: 6rem;
-                    height: 1.2rem;
-                    padding: 0 .25rem;
-                    display: flex;
-                    justify-content: space-between;
-                    gap: .25rem;
-                    .dot{
-                        height: 100%;
-                        aspect-ratio: 1;
-                        border: none;
-                        background-color: #1d1d1b;
-                        transition: background-color .25s ease;
-                        cursor: pointer;
-                    }
-                    .activeDot{
-                        background-color: #b81626;
-                    }
+    .mainCarousel{
+        opacity: 1;
+        .carousel{
+            .slide{
+                .slideImg{
+                    width: 100dvw;
+                    min-height: 100%;
+                    aspect-ratio: 16/10;
                 }
             }
         }

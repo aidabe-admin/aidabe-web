@@ -21,24 +21,7 @@ export default function BlogLayout({posts}: PostDetail){
         <section className={styles.blogLayout_cont}>
             <SectionTitle title="Actualidad" color={true} />
             <div className={styles.blogLayout}>
-            <div className={`${styles.blogPost} ${styles.firstBlogPost}`} key={posts[0].title}>
-                <div className={styles.blogPost_imgContainer}>
-                    <Image
-                        alt={posts[0].alt}
-                        src={posts[0].image}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    </div>
-                    <h4 className={styles.blogPost_title}>
-                        {posts[0].title}
-                    </h4>
-                    <p className={styles.blogPost_text}>{posts[0].text}</p>
-                    <Link href={posts[0].link}>
-                        <Button text='Leer más' style='danger' />
-                    </Link>
-                </div>
-                {posts.slice(1, 3).map((post) => (
+                {posts.map((post) => (
                     <div className={styles.blogPost} key={post.title}>
                         <div className={styles.blogPost_imgContainer}>
                             <Image
@@ -48,16 +31,21 @@ export default function BlogLayout({posts}: PostDetail){
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                         </div>
-                        <h4 className={styles.blogPost_title}>
-                            {post.title}
-                        </h4>
-                        <p className={styles.blogPost_text}>{post.text}</p>
-                        <Link href={post.link}>
-                            <Button text='Leer más' style='danger' />
+                        <Link className={styles.blogPost_mask} href={post.link}>
+                            <p className={styles.blogPost_link}>Ver más</p>
                         </Link>
+                        <div className={styles.blogPost_dataCont}>
+                            <h4 className={styles.blogPost_title}>
+                                {post.title}
+                            </h4>
+                            <p className={styles.blogPost_text}>{post.text}</p>
+                        </div>
                     </div>
                 ))}
             </div>
+            <Link href="/actualidad">
+                <Button text='ver más' style='default' />
+            </Link>
         </section>
     )
 }
