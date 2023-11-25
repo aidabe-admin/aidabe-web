@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import styles from '@/app/(secciones)/asociados/asociados.module.scss';
+import Form from '@/app/ui/form';
 
 const partners = [
     {
@@ -46,11 +47,59 @@ const benefits = [{
 }
 ]
 
-export default function Board() {
-    const [openIndex, setOpenIndex] = useState<number>(0);
+const form = [
+    {
+        label: "Nombre completo",
+        type: "text",
+        name: "nombre"
+    },
+    {
+        label: "E-mail",
+        type: "email",
+        name: "email"
+    },
+    {
+        label: "Teléfono",
+        type: "phone",
+        name: "telefono"
+    },
+    {
+        label: "Empresa",
+        type: "text",
+        name: "empresa"
+    },
+    {
+        label: "Cargo",
+        type: "text",
+        name: "cargo"
+    },
+    {
+        label: "LinkedIn (enlace)",
+        type: "text",
+        name: "linkedin"
+    },
+    {
+        label: "Provincia",
+        type: "text",
+        name: "provincia"
+    },
+    {
+        label: "Nacionalidad",
+        type: "text",
+        name: "nacionalidad"
+    },
+    {
+        label: "Asunto",
+        type: "text",
+        name: "asunto"
+    }
+]
+
+export default function Members() {
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const handleToggleDescription = (index: number) => {
-        setOpenIndex((prevIndex) => (prevIndex === index ? 0 : index));
+        setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
     };
 
     return(
@@ -101,6 +150,11 @@ openIndex === index ? styles.open_description_cont : ''}`}>
                         </div>
                     ))}
                 </div>
+            </div>
+            <div className={styles.form_container}>
+                <h3 className={styles.section_subtitle}>Formulario</h3>
+                <p>Asociate completando el siguiente formulario</p>
+                <Form className={styles.members_form} inputList={form} />
             </div>
         </section>
     )
