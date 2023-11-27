@@ -153,7 +153,11 @@
     }
     .articles_layout{
         padding: 0 4rem;
-        grid-template-columns: repeat(3, 1fr);
+        .blogPost{
+            .blogPost_dataCont{
+                padding: 2rem;
+            }
+        }
     }
     .pagination{
         padding: 2rem 4rem;
@@ -164,6 +168,9 @@
     .section_header{
         padding: 3rem 8rem;
         gap: 1.5rem;
+        .section_subtitle{
+            font-size: 1.2rem;
+        }
     }
     .articles_layout{
         padding: 0 8rem;
@@ -186,10 +193,11 @@
             font-size: 2.6rem;
         }
         .section_subtitle{
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
     }
     .articles_layout{
+        grid-template-columns: repeat(3, 1fr);
         .blogPost{
             .blogPost_dataCont{
                 padding: 2rem;

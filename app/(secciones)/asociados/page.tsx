@@ -1,9 +1,14 @@
 "use client"
 
 import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 import styles from '@/app/(secciones)/asociados/asociados.module.scss';
-import Form from '@/app/ui/form';
+import Button from '@/app/ui/button';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 const partners = [
     {
@@ -34,65 +39,17 @@ const partners = [
 
 const benefits = [{
     title: "01. contenido exclusivo",
-    text: "Informes de datos, estudios de tendencias, artículos exclusivos."
+    text: "Informes del sector, estudios de tendencias, artículos y entrevistas exclusivas."
 },{
     title: "02. eventos",
-    text: "Descuento eventos del sector, invitación a eventos de AIDABE."
+    text: "Descuento en eventos del sector, invitación a eventos promovidos por AIDABE."
 },{
-    title: "03. descuentos y promociones con marcas líderes",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    title: "03. marcas líderes",
+    text: "AIDABE llega a acuerdos exclusivos con marcas líderes de los que podrás beneficiarte tu y tu negocio por ser miembro de la asociación."
 },{
-    title: "04. descuentos en cursos y formaciones",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    title: "04. cursos y formaciones",
+    text: "Obtendrás descuentos para realizar programas formativos que te ayudarán a impulsar tu carrera profesional."
 }
-]
-
-const form = [
-    {
-        label: "Nombre completo",
-        type: "text",
-        name: "nombre"
-    },
-    {
-        label: "E-mail",
-        type: "email",
-        name: "email"
-    },
-    {
-        label: "Teléfono",
-        type: "phone",
-        name: "telefono"
-    },
-    {
-        label: "Empresa",
-        type: "text",
-        name: "empresa"
-    },
-    {
-        label: "Cargo",
-        type: "text",
-        name: "cargo"
-    },
-    {
-        label: "LinkedIn (enlace)",
-        type: "text",
-        name: "linkedin"
-    },
-    {
-        label: "Provincia",
-        type: "text",
-        name: "provincia"
-    },
-    {
-        label: "Nacionalidad",
-        type: "text",
-        name: "nacionalidad"
-    },
-    {
-        label: "Asunto",
-        type: "text",
-        name: "asunto"
-    }
 ]
 
 export default function Members() {
@@ -105,9 +62,9 @@ export default function Members() {
     return(
         <section className="main-wrapper board-page">
             <header className={styles.section_header}>
-                <h2 className={styles.section_title}>Asociados</h2>
+                <h2 className={styles.section_title}>¿Quién compone AIDABE?</h2>
                 <p className={styles.section_subtitle}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis tortor ut egestas tempus. Ut at posuere magna. Vivamus placerat erat sed magna varius tristique. Sed ante dolor, egestas id tempus in, lobortis eu diam. Morbi ut odio dictum felis lacinia suscipit sed in lorem. In bibendum nec ligula commodo pharetra. Maecenas finibus finibus pharetra.
+                    Somos una asociación que reúne a más de 1000 profesionales altamente cualificados del sector de Alimentos y Bebidas de España y Latinoamérica. Nuestros miembros están comprometidos con la especialización y profesionalización de un sector en crecimiento que aporta un valor significativo a la sociedad y a la economía. Creemos firmemente en el poder de la colaboración y el intercambio de conocimientos para impulsar la innovación y el progreso en nuestra industria. En AIDABE, estamos dedicados a promover la excelencia, la ética y el desarrollo profesional en el sector de Alimentos y Bebidas.
                 </p>
             </header>
             <div className={styles.partners_types}>
@@ -121,6 +78,10 @@ export default function Members() {
                             <div key={index} className={styles.type_cont}>
                                 <div className={styles.title_container} onClick={() => handleToggleDescription(index)}>
                                     <h5 className={styles.type_title}>{partner.title}</h5>
+                                    <div className={styles.partner_selector}>
+                                        <div className={`${styles.icon_container} ${openIndex === index ? styles.bounce_icon : ''}`}><FontAwesomeIcon icon={faPlus} /></div>
+                                        <div className={`${styles.icon_container} ${openIndex === index ? styles.bounce_icon : ''}`}><FontAwesomeIcon icon={faMinus} /></div>
+                                    </div>
                                 </div>
                                 <div className={`${styles.description_container} ${
 openIndex === index ? styles.open_description_cont : ''}`}>
@@ -151,10 +112,17 @@ openIndex === index ? styles.open_description_cont : ''}`}>
                     ))}
                 </div>
             </div>
-            <div className={styles.form_container}>
-                <h3 className={styles.section_subtitle}>Formulario</h3>
-                <p>Asociate completando el siguiente formulario</p>
-                <Form className={styles.members_form} inputList={form} />
+            <div className={styles.contact}>
+                <div className={styles.contact_img}>
+                    <Image src="/post-1.jpg" fill alt=''/>
+                </div>
+                <div className={styles.contact_action}>
+                    <h3 className={styles.section_subtitle}>¿Quieres formar parte?</h3>
+                    {/* <p>Asociate completando el siguiente formulario</p> */}
+                    <Link href="/contacto">
+                        <Button text="Envíanos tu solicitud" style="danger" />
+                    </Link>
+                </div>
             </div>
         </section>
     )

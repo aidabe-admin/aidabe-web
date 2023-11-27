@@ -102,7 +102,7 @@ body{
             #menu-navlist{
                 height: 100%;
                 display: grid;
-                grid-template-rows: repeat(5, 1fr);
+                grid-template-rows: repeat(6, 1fr);
                 background-color: transparent;
                 .nav-container{
                     border-top: 1px solid #fff;
@@ -122,7 +122,7 @@ body{
                             font-style: normal;
                             font-size: 1.8rem;
                             text-transform: uppercase;
-                            opacity: 1;
+                            opacity: 0;
                             color: #fff;
                         }
                         .active-navlink{
@@ -143,6 +143,9 @@ body{
                         }
                         .act-navlink-5{
                             transition-delay: 1.25s;
+                        }
+                        .act-navlink-6{
+                            transition-delay: 1.5s;
                         }
                     }
                 }
@@ -256,6 +259,84 @@ body{
             opacity: 1;
             transition: opacity .5s ease;
             z-index: 1;
+        }
+    }
+
+    .events-wrapper{
+        margin-top: 5rem;
+        padding: 2rem;
+        display: grid;
+        gap: 1rem;
+        .section-text{
+            text-align: justify;
+        }
+        .events-selector{
+            width: 100%;
+            height: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color: #dbdddd;
+            .event-selector{
+                display: grid;
+                place-content: center;
+            }
+            .selected-event-sec{
+                background-color: $aidabe-red;
+                color: #fff;
+            }
+        }
+        .events{
+            margin-top: .5rem;
+            display: grid;
+            gap: 1rem;
+            .events-slider{
+                display: flex;
+                overflow: hidden;
+                transition: transform .5s ease;
+                .event-slide{
+                    transition: transform .5s ease;
+                }
+                #events-list-container{
+                    min-width: 100%;
+                    .events-list{
+                        display: grid;
+                        gap: .75rem;
+                        .event-container{
+                            list-style-type: none;
+                            .event{
+                                display: grid;
+                                gap: 1rem;
+                                grid-template-columns: 3.5rem auto;
+                                align-items: center;
+                                .event-date{
+                                    aspect-ratio: 1;
+                                    border-radius: 50%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                    background-color: $aidabe-red;
+                                    .event-number, .event-day{
+                                        font-weight: 600;
+                                        color: #fff;
+                                    }
+                                }
+                                .event-name-container{
+                                    .event-name{
+                                        font-size: 1.15rem;
+                                        font-weight: 800;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                #events-calendar{
+                    min-width: 100%;
+                    height: 20rem;
+                    background-color: $aidabe-red;
+                }
+            }
         }
     }
 
@@ -495,6 +576,10 @@ body{
             }
         }
 
+        .events-wrapper{
+            padding: 2rem 4rem;
+        }
+
         .footer{
             padding: 2rem 4rem;
             grid-template-columns: 1fr 1fr 1fr;
@@ -521,7 +606,11 @@ body{
     body{
         #main-header{
             padding: 0 8rem;
+            justify-content: unset;
             #main-nav{
+                margin-left: 1rem;
+                padding-left: 1rem;
+                border-left: 1px solid $aidabe-red;
                 display: flex;
                 #main-navlist{
                     display: flex;
@@ -537,6 +626,12 @@ body{
                             a{
                                 color: $aidabe-white;
                             }
+                        }
+                    }
+                    .active-navlink{
+                        background-color: $aidabe-black;
+                        a{
+                            color: $aidabe-white;
                         }
                     }
                 }
@@ -562,6 +657,26 @@ body{
                     padding: 3rem;
                     #close-modal{
                         right: 3rem;
+                    }
+                }
+            }
+        }
+
+        .events-wrapper{
+            padding: 4rem 6rem;
+            .events-selector{
+                display: none;
+            }
+            .events{
+                .events-slider{
+                    gap: 2rem;
+                    #events-list-container{
+                        width: 70%;
+                        min-width: unset
+                    }
+                    #events-calendar{
+                        width: 30%;
+                        min-width: unset;
                     }
                 }
             }
@@ -617,6 +732,11 @@ body{
                     width: 40%;
                 }
             }
+        }
+
+        .events-wrapper{
+            padding: 4rem 8rem;
+            gap: 2rem;
         }
     }
 }

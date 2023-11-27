@@ -50,8 +50,7 @@ export default function Board({board} : Board) {
             <SectionTitle title='La asociación' />
             <div className={styles.boardDetails_cont}>
                 <p className={styles.boardDetails}>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<br/><br/>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    La  Asociación Iberoamericana de Directoras y Directores de Alimentos y Bebidas Jefaturas Ejecutivas de Cocina, nace con el objetivo de promover la labor, establecer relaciones profesionales, y fomentar el intercambio de información, entre los perfiles directivos de la industria de Servicios de Alimentación y Bebidas / Food Service Industry.
                 </p>
             </div>
             <div className={styles.boardLayout_cont}>

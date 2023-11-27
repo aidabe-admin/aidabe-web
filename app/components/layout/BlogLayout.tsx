@@ -32,7 +32,7 @@ export default function BlogLayout({posts}: PostDetail){
                             />
                         </div>
                         <Link className={styles.blogPost_mask} href={post.link}>
-                            <p className={styles.blogPost_link}>Ver más</p>
+                            <p className={styles.blogPost_link}>leer más</p>
                         </Link>
                         <div className={styles.blogPost_dataCont}>
                             <h4 className={styles.blogPost_title}>

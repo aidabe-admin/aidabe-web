@@ -130,6 +130,10 @@
                     min-height: 100%;
                     aspect-ratio: 16/10;
                 }
+                .slideData{
+                    width: calc(100dvw - 16rem);
+                    margin: 6rem 8rem;
+                }
             }
         }
     }

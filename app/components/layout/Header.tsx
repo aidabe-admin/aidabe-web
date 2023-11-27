@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
 import { useState, useEffect } from "react";
 
 import Menu from "@/app/components/layout/Menu";
@@ -9,6 +10,10 @@ import Burger from "@/app/ui/burger";
 
 export default function Header() {
     const navlinks = [
+        {
+            title: 'inicio',
+            link: '/'
+        },
         {
             title: 'actualidad',
             link: '/actualidad'
@@ -30,6 +35,9 @@ export default function Header() {
             link: '/contacto'
         },
     ];
+
+    const pathname = usePathname();
+
     const [menu, setMenu] = useState(false);
     const [burger, setBurger] = useState(false);
     const [scrollPercentage, setScrollPercentage] = useState(0);
@@ -37,6 +45,13 @@ export default function Header() {
     const handleMenu = () => {
         setMenu(!menu)
         setBurger(!burger)
+    }
+
+    const handleLink = () => {
+        if (menu === true) {
+            setMenu(!menu);
+            setBurger(!burger);
+        }
     }
 
     const handleScroll = () => {
@@ -66,7 +81,7 @@ export default function Header() {
     return(
         <>
             <header id="main-header">
-                <Link id="header-logo-cont" href="/">
+                <Link id="header-logo-cont" href="/" onClick={handleLink}>
                     <Image
                         src="/aidabe-logo.png"
                         alt="AIDABE logo"
@@ -79,7 +94,10 @@ export default function Header() {
                 <nav id="main-nav">
                     <ul id="main-navlist">
                         {navlinks.map((navlink) => (
-                            <li key={navlink.title} className="main-navlink">
+                            <li
+                                key={navlink.title}
+                                className={`main-navlink ${pathname === navlink.link ? 'active-navlink' : ''}`}
+                                >
                                 <Link href={navlink.link}>
                                     {navlink.title}
                                 </Link>
@@ -91,7 +109,7 @@ export default function Header() {
             <div id="progress-bar">
                 <div className="progress-indicator" style={{ width: `${scrollPercentage.toFixed(2)}%` }} />
             </div>
-            <Menu navlinks={navlinks} openMenu={menu} />
+            <Menu navlinks={navlinks} openMenu={menu} onClick={handleLink} />
         </>
     )
 }

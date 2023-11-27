@@ -9,8 +9,8 @@ export default function Home() {
         title: "Somos AIDABE",
         image: "/carousel-1.jpg",
         subtitle: "La mayor asociación de directores de F&B de habla hispana",
-        link: null,
-        button: null
+        link: "/asociacion",
+        button: "ver más"
     },
     {
         title: "HIP",
@@ -22,7 +22,7 @@ export default function Home() {
     {
         title: "Hazte socio",
         image: "/carousel-3.jpg",
-        subtitle: "La mayor asociación de directores de F&B de habla hispana",
+        subtitle: "Forma parte de AIDABE hoy mismo",
         link: "/asociados",
         button: "ver más"
     },

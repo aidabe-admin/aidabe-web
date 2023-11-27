@@ -1,6 +1,7 @@
 import styles from '@/app/components/layout/styles/partners.module.scss'
 import Button from '@/app/ui/button';
 import SectionTitle from "@/app/ui/sectionTitle";
+import Link from 'next/link';
 
 export default function Partners() {
     return(
@@ -8,13 +9,14 @@ export default function Partners() {
             <SectionTitle title="Los asociados" color={true} />
             <div className={styles.partnersDetails_cont}>
                 <p className={styles.partnersDetails}>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<br/><br/>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    Somos una asociación que reúne a más de 1000 profesionales altamente cualificados del sector de Alimentos y Bebidas de España y Latinoamérica. Nuestros miembros están comprometidos con la especialización y profesionalización de un sector en crecimiento que aporta un valor significativo a la sociedad y a la economía.<br /><br />Creemos firmemente en el poder de la colaboración y el intercambio de conocimientos para impulsar la innovación y el progreso en nuestra industria. En AIDABE, estamos dedicados a promover la excelencia, la ética y el desarrollo profesional en el sector de Alimentos y Bebidas.
                 </p>
             </div>
             <div className={styles.partners_cta}>
                 <h4 className={styles.partners_subtitle}>¿Quieres formar parte?</h4>
-                <Button text='contáctanos' style='default' />
+                <Link href="/contacto" style={{display: 'flex', justifyContent: 'center'}}>
+                    <Button text='contáctanos' style='default' />
+                </Link>
             </div>
         </section>
     )

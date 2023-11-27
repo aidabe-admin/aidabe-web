@@ -21,9 +21,9 @@ interface ArticleDetail {
 
 const articles = [
     {
-      title: 'Título 1',
+      title: 'La transparencia en la restauración: ¿Una moda o una necesidad?',
       image: '/post-1.jpg',
-      text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
+      text: 'Transparencia en la restauración: Más allá de las modas, un análisis reflexivo y realista.',
       link: '/titulo-1',
       alt: 'Lorem ipsum dolor sit amet.'
     },
@@ -63,7 +63,7 @@ export default function Blog() {
             <header className={styles.section_header}>
                 <h2 className={styles.section_title}>Actualidad</h2>
                 <p className={styles.section_subtitle}>
-                    Informate respecto a las últimas noticias, avisos y eventos.
+                    Nuevos modelos de negocio, innovación, sostenibilidad y las tendencias del sector.
                 </p>
             </header>
             <div className={styles.articles_layout}>
@@ -78,7 +78,7 @@ export default function Blog() {
                             />
                         </div>
                         <div className={styles.blogPost_mask}>
-                            <p className={styles.blogPost_link}>Ver más</p>
+                            <p className={styles.blogPost_link}>leer más</p>
                         </div>
                         <div className={styles.blogPost_dataCont}>
                             <h4 className={styles.blogPost_title}>
