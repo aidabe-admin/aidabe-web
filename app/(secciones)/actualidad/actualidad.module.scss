@@ -149,7 +149,12 @@
 @media screen and (min-width: 768px) {
     .section_header{
         padding: 2rem 4rem;
-        gap: 1.25rem;
+        .section_title{
+            font-size: 2.6rem;
+        }
+        .section_subtitle{
+            font-size: 1.2rem;
+        }
     }
     .articles_layout{
         padding: 0 4rem;
@@ -167,10 +172,6 @@
 @media screen and (min-width: 1024px) {
     .section_header{
         padding: 3rem 8rem;
-        gap: 1.5rem;
-        .section_subtitle{
-            font-size: 1.2rem;
-        }
     }
     .articles_layout{
         padding: 0 8rem;
@@ -189,9 +190,6 @@
 
 @media screen and (min-width: 1440px) {
     .section_header{
-        .section_title{
-            font-size: 2.6rem;
-        }
         .section_subtitle{
             font-size: 1.3rem;
         }

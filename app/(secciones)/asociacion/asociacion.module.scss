@@ -68,12 +68,32 @@
         padding: 2rem 4rem 0;
         flex-direction: unset;
         text-align: initial;
+        .section_title{
+            font-size: 2.6rem;
+        }
     }
     .section{
         padding: 2rem 4rem;
         align-items: unset;
         .section_subtitle{
+            font-size: 1.66rem;
             text-align: initial;
+        }
+        .section_text{
+            font-size: 1.2rem;
+        }
+        .section_list{
+            .list_item{
+                grid-template-rows: 1.8rem auto;
+                gap: 1.2rem;
+                .aidabe_bullet{
+                    width: 1.2rem;
+                }
+                .list_text{
+                    font-size: 1.2rem;
+                    line-height: 1.8rem;
+                }
+            }
         }
     }
 }
@@ -84,6 +104,16 @@
     }
     .section{
         padding: 3rem 8rem;
+        .section_text{
+            font-size: 1.3rem;
+        }
+        .section_list{
+            .list_item{
+                .list_text{
+                    font-size: 1.3rem;
+                }
+            }
+        }
     }
 }
 

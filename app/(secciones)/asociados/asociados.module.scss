@@ -6,7 +6,6 @@
     .section_title{
         text-align: center;
         font-size: 2rem;
-        text-align: center;
         font-family: massilia, sans-serif;
         font-weight: 900;   
     }
@@ -175,6 +174,7 @@
     overflow: hidden;
     .contact_img{
         width: 100%;
+        min-height: 100%;
         aspect-ratio: 16/10;
         position: absolute;
     }
@@ -212,8 +212,56 @@
         padding: 2rem 4rem;
     }
 
+    .section_header{
+        padding-bottom: 0;
+        .section_title{
+            text-align: unset;
+            font-size: 2.6rem;
+        }
+        .section_subtitle{
+            font-size: 1.2rem;
+        }
+    }
+
+    .partners_types{
+        .partners_description{
+            justify-items: initial;
+            .section_subtitle{
+                font-size: 1.66rem;
+            }
+            .section_text{
+                font-size: 1.2rem;
+            }
+        }
+        .types{
+            .types_layout{
+                .type_cont{
+                    .title_container{
+                        height: 4rem;
+                        .type_title{
+                            font-size: 1.66rem;
+                        }
+                    }
+                    .description_container{
+                        .description{
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .benefits{
         align-items: center;
+        .benefits_description{
+            .section_subtitle{
+                font-size: 1.66rem;
+            }
+            .section_text{
+                font-size: 1.2rem;
+            }
+        }
         .benefits_layout{
             grid-template-columns: 1fr 1fr;
             .benefit{
@@ -256,6 +304,9 @@
     .contact{
         .contact_action{
             padding: 4rem;
+            .section_subtitle{
+                font-size: 1.66rem;
+            }
         }
     }
 }
@@ -263,6 +314,40 @@
 @media screen and (min-width: 1024px) {
     .section_header, .partners_types, .benefits{
         padding: 3rem 8rem;
+    }
+
+    .section_header{
+        .section_subtitle{
+            font-size: 1.3rem;
+        }
+    }
+
+    .partners_types{
+        .partners_description{
+            .section_text{
+                font-size: 1.3rem;
+            }
+        }
+    }
+    
+    .benefits{
+        .benefits_description{
+            .section_text{
+                font-size: 1.3rem;
+            }
+        }
+        .benefits_layout{
+            .benefit{
+                .benefit_text{
+                    .benefit_title{
+                        font-size: 1.3rem;
+                    }
+                    .benefit_desc{
+                        font-size: 1.15rem;
+                    }
+                }
+            }
+        }
     }
 }
 
