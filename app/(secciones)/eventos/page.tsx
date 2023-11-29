@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
+import DatePicker from '@/app/ui/datePicker';
 
 export default function Events() {
-  const [isCalendarSelected, setCalendarSelected] = useState(false);
-  const [selected, setSelected] = useState(true);
-
   const events = [
     {
       id: 1,
@@ -31,11 +30,43 @@ export default function Events() {
       description: 'Reseña evento 4',
       date: new Date('2024-03-22'),
     },
+    {
+      id: 5,
+      title: 'Evento 5',
+      description: 'Reseña evento 4',
+      date: new Date('2023-01-22'),
+    },
   ];
 
-  const toggleSelected = () => {
-    setSelected(!selected);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const currentDate = new Date();
+  const sortedEvents = [...events].sort((a, b) => {
+    const dateDifferenceA = Math.abs(a.date.getTime() - currentDate.getTime());
+    const dateDifferenceB = Math.abs(b.date.getTime() - currentDate.getTime());
+
+    return dateDifferenceA - dateDifferenceB;
+  });
+  const filteredAndSortedEvents = sortedEvents.filter((event) => event.date >= currentDate);
+
+  const handleDateSelect = (date: Date | null) => {
+    setSelectedDate(date);
   };
+
+  const clearFilter = () => {
+    setSelectedDate(null);
+  };
+
+  const filteredEvents = selectedDate
+    ? events.filter((event) => {
+        const eventDate = event.date.setHours(0, 0, 0, 0);
+        const selectedDateValue = selectedDate.setHours(0, 0, 0, 0);
+        return eventDate === selectedDateValue;
+      })
+    : events;
+
+  const subtitle = selectedDate
+    ? `Eventos del ${selectedDate.toLocaleDateString('es-ES')}`
+    : 'Todos los eventos';
 
   return (
     <section className="events-wrapper">
@@ -43,54 +74,42 @@ export default function Events() {
       <p className='section-text'>
         Como líderes del sector F&B organizamos eventos propios y participamos en eventos de otros actores para debatir, compartir perspectivas y horizontes y contribuir a su posicionamiento y crecimiento económico. Aquí puedes consultar los próximos eventos en los que estaremos presentes
       </p>
-      <div className="events-selector">
-        <div
-          className={`event-selector ${selected ? 'selected-event-sec' : ''}`}
-          id="select-list"
-          onClick={toggleSelected}
-        >
-          <p>Lista de eventos</p>
-        </div>
-        <div
-          className={`event-selector ${selected ? '' : 'selected-event-sec'}`}
-          id="select-calendar"
-          onClick={toggleSelected}
-        >
-          <p>Calendario</p>
-        </div>
-      </div>
       <div className="events">
-        <h3 className="section-subtitle">Próximos eventos</h3>
         <div className="events-slider">
-          <div
-            style={{ transform: selected ? 'translateX(0)' : 'translateX(-100%)' }}
-            className="event-slide"
-            id="events-list-container"
-          >
+        <div
+          className="event-slide"
+          id="events-calendar"
+        >
+          <DatePicker onDateSelect={handleDateSelect} />
+        </div>
+        <div
+          className="event-slide"
+          id="events-list-container"
+        >
+          <h3 className='section-subtitle'>{subtitle}</h3>
+          {selectedDate && (
+            <button onClick={clearFilter} className='clear-filter-btn'>Limpiar filtro</button>
+          )}
+          {filteredEvents.length === 0 ? (
+            <p className='no-events-error'>No hay eventos para el día seleccionado.</p>
+          ) : (
             <ul className="events-list">
-              {events.map((event) => (
+              {filteredAndSortedEvents.map((event) => (
                 <li className="event-container" key={event.id}>
                   <div className="event">
-                    <div className="event-date">
-                      <p className="event-number">{event.date.getDate()}</p>
-                      <p className="event-day">{event.date.toLocaleDateString('es-ES', { month: 'short' }).toUpperCase()}</p>
-                    </div>
                     <div className="event-name-container">
                       <h5 className="event-name">{event.title}</h5>
+                      <p className='event-date'>{event.date.getDate()}.{event.date.getMonth() + 1}.{event.date.getFullYear()}</p>
                       <p className="event-desc">{event.description}</p>
                     </div>
+                    <Link href="/" className="event-link"><p className='link-text'>Ver más</p></Link>
                   </div>
                 </li>
               ))}
             </ul>
+          )}
           </div>
-          <div
-            style={{ transform: selected ? 'translateX(0%)' : 'translateX(-100%)', display: 'grid', placeContent: 'center'}}
-            className="event-slide"
-            id="events-calendar"
-          >
-            <p style={{color: "#fff"}}>Calendario</p>
-          </div>
+          
         </div>
       </div>
     </section>

@@ -1,57 +1,47 @@
-// EventListPage.tsx
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+// datePicker.tsx
 
-interface Event {
-  id: number;
-  title: string;
-  date: Date;
+"use client";
+
+import { useState, useEffect } from 'react';
+import Calendar from 'react-calendar';
+
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
+
+interface DatePickerProps {
+  onDateSelect: (date: Date | null) => void;
 }
 
-const eventsData: Event[] = [
-  { id: 1, title: 'Evento 1', date: new Date('2023-11-27') },
-  { id: 2, title: 'Evento 2', date: new Date('2023-11-28') },
-  { id: 3, title: 'Evento 3', date: new Date('2023-11-29') },
-  // Agrega más eventos según sea necesario
-];
+export default function DatePicker({ onDateSelect }: DatePickerProps) {
+  const [value, setValue] = useState<Value>(null);
 
-const EventListPage: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  useEffect(() => {
+    setValue(new Date()); // Asigna la fecha actual al cargar el componente
+  }, []); // El efecto se ejecuta solo una vez al montar el componente
 
-  const filteredEvents = selectedDate
-    ? eventsData.filter((event) => isSameDay(event.date, selectedDate))
-    : eventsData;
+  const handleDateChange = (date: Value) => {
+    setValue(date);
+    onDateSelect(date instanceof Date ? date : null);
+  };
+
+  const tileClassName = ({ date }: { date: Date }) => {
+    return value instanceof Date && date.toDateString() === value.toDateString()
+      ? 'active-day'
+      : '';
+  };
 
   return (
     <div>
-      <h1>Lista de Eventos</h1>
-      
-      <div>
-        <label>Seleccione una fecha:</label>
-        <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
-      </div>
-
-      <ul>
-        {filteredEvents.map((event) => (
-          <li key={event.id}>
-            <strong>{event.title}</strong> - {formatDate(event.date)}
-          </li>
-        ))}
-      </ul>
+      <Calendar
+        onChange={handleDateChange}
+        value={value}
+        className="date-picker"
+        locale="es-ES"
+        minDate={new Date('2023-11-01')}
+        maxDate={new Date('2025-01-01')}
+        tileClassName={tileClassName}
+      />
     </div>
   );
-};
-
-const isSameDay = (dateA: Date, dateB: Date) =>
-  dateA.getDate() === dateB.getDate() &&
-  dateA.getMonth() === dateB.getMonth() &&
-  dateA.getFullYear() === dateB.getFullYear();
-
-  const formatDate = (date: Date) => {
-    const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'numeric', year: 'numeric' };
-    return date.toLocaleDateString('es-ES', options);
-  };
-  
-
-export default EventListPage;
+}

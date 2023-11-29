@@ -1,14 +1,13 @@
 "use client"
 
 import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 
 import styles from '@/app/(secciones)/asociados/asociados.module.scss';
 import Button from '@/app/ui/button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import data from '@/data/countries.json'
 
 const partners = [
     {
@@ -52,12 +51,68 @@ const benefits = [{
 }
 ]
 
+const partner = [
+    {
+        label: "Nombre",
+        type: "text",
+        name: "nombre"
+    },
+    {
+        label: "Apellido",
+        type: "text",
+        name: "apellido"
+    },
+    {
+        label: "E-mail",
+        type: "email",
+        name: "email"
+    },
+    {
+        label: "Teléfono",
+        type: "phone",
+        name: "telefono"
+    },
+    {
+        label: "LinkedIn",
+        type: "text",
+        name: "linkedin"
+    },
+    {
+        label: "Empresa",
+        type: "text",
+        name: "empresa"
+    },
+    {
+        label: "Cargo",
+        type: "text",
+        name: "cargo"
+    },
+    {
+        label: "Nacionalidad",
+        type: "text",
+        name: "nacionalidad"
+    }
+]
+
 export default function Members() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const [selectedCountry, setSelectedCountry] = useState<string>('');
+    const [selectedState, setSelectedState] = useState<string>('');
 
     const handleToggleDescription = (index: number) => {
         setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
     };
+
+    const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const countryId = event.target.value;
+        setSelectedCountry(countryId);
+        setSelectedState('');
+      };
+    
+      const handleStateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const stateId = event.target.value;
+        setSelectedState(stateId);
+      };
 
     return(
         <section className="main-wrapper board-page">
@@ -79,8 +134,12 @@ export default function Members() {
                                 <div className={styles.title_container} onClick={() => handleToggleDescription(index)}>
                                     <h5 className={styles.type_title}>{partner.title}</h5>
                                     <div className={styles.partner_selector}>
-                                        <div className={`${styles.icon_container} ${openIndex === index ? styles.bounce_icon : ''}`}><FontAwesomeIcon icon={faPlus} /></div>
-                                        <div className={`${styles.icon_container} ${openIndex === index ? styles.bounce_icon : ''}`}><FontAwesomeIcon icon={faMinus} /></div>
+                                        <div className={`${styles.icon_container} ${openIndex === index ? styles.bounce_icon : ''}`}>
+                                            <FontAwesomeIcon icon={faPlus} />
+                                        </div>
+                                        <div className={`${styles.icon_container} ${openIndex === index ? styles.bounce_icon : ''}`}>
+                                            <FontAwesomeIcon icon={faMinus} />
+                                        </div>
                                     </div>
                                 </div>
                                 <div className={`${styles.description_container} ${
@@ -113,15 +172,61 @@ openIndex === index ? styles.open_description_cont : ''}`}>
                 </div>
             </div>
             <div className={styles.contact}>
-                <div className={styles.contact_img}>
-                    <Image src="/post-1.jpg" fill alt=''/>
-                </div>
                 <div className={styles.contact_action}>
                     <h3 className={styles.section_subtitle}>¿Quieres formar parte?</h3>
-                    {/* <p>Asociate completando el siguiente formulario</p> */}
-                    <Link href="/contacto">
-                        <Button text="Envíanos tu solicitud" style="danger" />
-                    </Link>
+                        <div
+                        className={styles.form_container}
+                        id='partners-form'
+                    >
+                        <form className={styles.form}>
+                            {partner.map((input, index) => (
+                                <label className={styles.form_label} key={index}>
+                                    {input.label}
+                                    <input
+                                        type={input.type}
+                                        name={input.name}
+                                        className={styles.form_input}
+                                    />
+                                </label>
+                            ))}
+                            <label htmlFor="country" className={styles.form_label}>
+                                País de residencia:
+                                <select id="country" value={selectedCountry} onChange={handleCountryChange}>
+                                    <option value="">-</option>
+                                    {data.map((country) => (
+                                    <option key={country.country_id} value={country.country_id}>
+                                        {country.country_name}
+                                    </option>
+                                    ))}
+                                </select>
+                            </label>
+
+                            <label htmlFor="state" className={styles.form_label}>
+                                Provincia/Estado:
+                                <select id="state" value={selectedState} onChange={handleStateChange} disabled={!selectedCountry}>
+                                    <option value="">-</option>
+                                    {selectedCountry &&
+                                    data
+                                        .find((country) => country.country_id === selectedCountry)
+                                        ?.states.map((state) => (
+                                        <option key={state.state_id} value={state.state_id}>
+                                            {state.state_name}
+                                        </option>
+                                        ))}
+                                </select>
+                            </label>
+                            <label className={styles.form_label}>
+                                Mensaje
+                                <textarea
+                                className={styles.form_textarea}
+                                    name="mensaje"
+                                    maxLength={400}
+                                    required
+                                />
+                            </label>
+                            <button type="submit" className={styles.submit_form}>Enviar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>

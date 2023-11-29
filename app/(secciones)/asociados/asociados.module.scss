@@ -166,22 +166,14 @@
 }
 
 .contact{
-    height: 50dvh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
-    .contact_img{
-        width: 100%;
-        min-height: 100%;
-        aspect-ratio: 16/10;
-        position: absolute;
-    }
     .contact_action{
         width: 100%;
         height: 100%;
-        padding: 1rem;
+        padding: 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -191,16 +183,74 @@
         background-color: rgba(255, 255, 255, 0.75);
         .section_subtitle{
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.66rem;
             font-family: massilia, sans-serif;
             font-weight: 900;       
+        }
+        .form_container{
+            min-width: 100%;
+            transition: transform .5s ease;
+            .form{
+              display: grid;
+              gap: 1rem;
+              .form_label{
+                display: flex;
+                flex-direction: column-reverse;
+                gap: .2rem;
+                font-size: .8rem;
+                color: #b81626;
+                .form_input{
+                  height: 2rem;
+                  border: none;
+                  border-bottom: 1px solid #b81626;
+                  transition: border-bottom .25s ease;
+                  font-size: 1rem;
+                  background-color: transparent;
+                  &:focus{
+                      outline: none;
+                      border-bottom: 1px solid #1d1d1b ;
+                  }
+                }
+                .form_textarea{
+                  height: 25dvh;
+                  padding: .5rem;
+                  border: 1px solid #b81626;
+                  font-size: 1.25rem;
+                  background-color: transparent;
+                  resize: none;
+                  &:focus{
+                      outline: none;
+                  }
+                }
+              }
+              .submit_form{
+                height: 2rem;
+                width: 5rem;
+                margin-top: 1rem;
+                padding: 0 .5rem;
+                border: none;
+                justify-self: center;
+                text-transform: uppercase;
+                font-weight: 800;
+                transition: background-color .25s ease, color .25s ease;
+                background-color: #fff;
+                color: #b81626;
+                cursor: pointer;
+                &:hover{
+                    background-color: #1b1d1d;
+                    color: #fff;
+                }
+              }
+            }
+          }
+        .move_slide{
+          transform: translateX(-100%);
         }
     }
 }
 
 @media screen and (min-width: 425px) {
     .contact{
-        height: 30dvh;
         .contact_action{
             padding: 2rem;
         }
@@ -304,8 +354,19 @@
     .contact{
         .contact_action{
             padding: 4rem;
-            .section_subtitle{
-                font-size: 1.66rem;
+            gap: 2rem;
+            .form_container{
+                .form{
+                    grid-template-columns: 1fr 1fr;
+                    .form_label{
+                        &:nth-last-child(2), .submit_form{
+                            grid-column: 1 / 3;
+                        }
+                    }
+                    .submit_form{
+                        grid-column: 1 / 3;
+                    }
+                }
             }
         }
     }
@@ -326,6 +387,15 @@
         .partners_description{
             .section_text{
                 font-size: 1.3rem;
+            }
+        }
+        .types{
+            .types_layout{
+                .type_cont{
+                    .description_container{
+                        overflow: hidden;
+                    }
+                }
             }
         }
     }
@@ -349,6 +419,64 @@
             }
         }
     }
+
+    .contact{
+        padding: 3rem 8rem;
+        .contact_action{
+            padding: 0;
+            .form_container{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                .form{
+                    max-width: 800px;
+                    padding: 2rem;
+                    grid-template-columns: repeat(6, 1fr);
+                    align-self: center;
+                    background: linear-gradient(to right, #b81626, #800915, #620912);
+                    background-size: 200% 200%;
+                    animation: gradientAnimation 5s linear infinite;                
+                    .form_label{
+                        color: #fff;
+                        .form_input{
+                            border-color: #fff;
+                            color: #fff;
+                        }
+                        .form_textarea{
+                            border-color: #fff;
+                        }
+                        &:nth-child(1){
+                            grid-column: 1 / 4;
+                        }
+                        &:nth-child(2){
+                            grid-column: 4 / 7;
+                        }
+                        &:nth-child(3), &:nth-child(6){
+                            grid-column: 1 / 3;
+                        }
+                        &:nth-child(4), &:nth-child(7){
+                            grid-column: 3 / 5;
+                        }
+                        &:nth-child(5), &:nth-child(8){
+                            grid-column: 5 / 7;
+                        }
+                        &:nth-child(9){
+                            grid-column: 1 / 4;
+                        }
+                        &:nth-child(10){
+                            grid-column: 4 / 7;
+                        }
+                        &:nth-last-child(2){
+                            grid-column: 1 / 7;
+                        }
+                    }
+                    .submit_form{
+                        grid-column: 1 / 7;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -361,3 +489,15 @@
         }
     }
 }
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

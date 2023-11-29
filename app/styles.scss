@@ -267,64 +267,89 @@ body{
         padding: 2rem;
         display: grid;
         gap: 1rem;
+        .section-title{
+            font-family: "massilia", sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            text-align: center;
+            font-style: normal;
+            text-transform: capitalize;
+        }
         .section-text{
             text-align: justify;
-        }
-        .events-selector{
-            width: 100%;
-            height: 2.5rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background-color: #dbdddd;
-            .event-selector{
-                display: grid;
-                place-content: center;
-            }
-            .selected-event-sec{
-                background-color: $aidabe-red;
-                color: #fff;
-            }
         }
         .events{
             margin-top: .5rem;
             display: grid;
             gap: 1rem;
+            .section-subtitle{
+                font-family: "massilia", sans-serif;
+                font-weight: 900;
+                font-size: 1.5rem;
+                font-style: normal;
+                text-align: center;
+            }
             .events-slider{
                 display: flex;
-                overflow: hidden;
-                transition: transform .5s ease;
+                flex-direction: column;
+                gap: 2rem;
                 .event-slide{
                     transition: transform .5s ease;
                 }
                 #events-list-container{
-                    min-width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    align-items: center;
+                    .clear-filter-btn{
+                        width: 7rem;
+                        height: 2rem;
+                        padding: .25rem;
+                        border: none;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        font-size: .8rem;
+                        background-color: $aidabe-red;
+                        color: $aidabe-white;
+                    }
                     .events-list{
+                        width: 100%;
                         display: grid;
                         gap: .75rem;
                         .event-container{
                             list-style-type: none;
                             .event{
-                                display: grid;
-                                gap: 1rem;
-                                grid-template-columns: 3.5rem auto;
+                                padding: 1rem 0;
+                                display: flex;
+                                justify-content: space-between;
                                 align-items: center;
-                                .event-date{
-                                    aspect-ratio: 1;
-                                    border-radius: 50%;
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    align-items: center;
-                                    background-color: $aidabe-red;
-                                    .event-number, .event-day{
-                                        font-weight: 600;
-                                        color: #fff;
-                                    }
-                                }
+                                border-bottom: 1px solid $aidabe-red;
+                                
                                 .event-name-container{
                                     .event-name{
-                                        font-size: 1.15rem;
+                                        font-size: 1.25rem;
                                         font-weight: 800;
+                                        text-transform: uppercase;
+                                    }
+                                    .event-date{
+                                        font-size: .9rem;
+                                        text-transform: uppercase;
+                                        font-weight: 800;
+                                        color: $aidabe-red;
+                                    }
+                                }
+                                .event-link{
+                                    width: 4.5rem;
+                                    height: 2em;
+                                    padding: .25rem;
+                                    display: grid;
+                                    place-content: center;
+                                    background-color: $aidabe-red;
+                                    .link-text{
+                                        text-transform: uppercase;
+                                        font-weight: 600;
+                                        font-size: .8rem;
+                                        color: $aidabe-white;
                                     }
                                 }
                             }
@@ -332,9 +357,67 @@ body{
                     }
                 }
                 #events-calendar{
-                    min-width: 100%;
-                    height: 20rem;
-                    background-color: $aidabe-red;
+                    .date-picker{
+                        .react-calendar__navigation{
+                            height: 2rem;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 4fr 1fr 1fr;
+                            .react-calendar__navigation__arrow, .react-calendar__navigation__label{
+                                border: 1px solid $aidabe-white;
+                                background-color: $aidabe-black;
+                                color: $aidabe-white;
+                                cursor: pointer;
+                            }
+                            .react-calendar__navigation__label{
+                                background-color: $aidabe-red;
+                                text-transform: uppercase;
+                                font-weight: 600;
+                                cursor: pointer;
+                            }
+                        }
+                        .react-calendar__viewContainer{
+                            .react-calendar__month-view{
+                                .react-calendar__month-view__weekdays{
+                                    padding: .25rem 0;
+                                    .react-calendar__month-view__weekdays__weekday{
+                                        aspect-ratio: 1;
+                                        border: 1px solid $aidabe-white;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        text-transform: uppercase;
+                                        font-size: .8rem;
+                                        font-weight: 600;
+                                        background-color: $aidabe-red;
+                                        color: $aidabe-white;
+                                        cursor: pointer;
+                                    }
+                                }
+                                .react-calendar__month-view__days{
+                                    .react-calendar__tile{
+                                        aspect-ratio: 4/3;
+                                        border: 1px solid $aidabe-red;
+                                        font-weight: 600;
+                                        transition: background-color .25s ease, color .25s ease;
+                                        background-color: $aidabe-white;
+                                        color: $aidabe-black;
+                                        cursor: pointer;
+                                        &:hover{
+                                            background-color: $aidabe-red;
+                                            color: $aidabe-white;
+                                        }
+                                        abbr{
+                                            border-bottom: 1px solid $aidabe-white;
+                                        }
+                                    }
+                                    .active-day{
+                                        background-color: $aidabe-red;
+                                        color: $aidabe-white;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -578,6 +661,36 @@ body{
 
         .events-wrapper{
             padding: 2rem 4rem;
+            .section-title{
+                text-align: unset;
+                font-size: 2.6rem;
+            }
+            .section-text{
+                font-size: 1.2rem;
+            }
+            .events{
+                .section-subtitle{
+                    font-size: 1.66rem;
+                    text-align: unset;
+                }
+                .events-slider{
+                    align-items: center;
+                    #events-calendar{
+                        width: 50%;
+                    }
+                    #events-list-container{
+                        width: 100%;
+                        min-height: 50dvh;
+                        .events-list{
+                            .event-container{
+                                .event{
+                                    padding: 1rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .footer{
@@ -664,19 +777,22 @@ body{
 
         .events-wrapper{
             padding: 4rem 6rem;
-            .events-selector{
-                display: none;
+            .section-text{
+                font-size: 1.3rem;
             }
             .events{
                 .events-slider{
-                    gap: 2rem;
+                    display: grid;
+                    grid-template-columns: 3fr 2fr;
+                    align-items: unset;
+                    gap: 3rem;
                     #events-list-container{
-                        width: 70%;
-                        min-width: unset
+                        align-items: unset;
                     }
                     #events-calendar{
-                        width: 30%;
-                        min-width: unset;
+                        width: 100%;
+                        padding-top: 3.66rem;
+                        order: 2;
                     }
                 }
             }

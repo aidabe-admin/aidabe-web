@@ -4,6 +4,9 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    background: linear-gradient(to right, #b81626, #800915, #620912);
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s linear infinite;
     .section_header{
         display: flex;
         flex-direction: column;
@@ -13,55 +16,19 @@
             font-size: 2rem;
             text-align: center;
             font-family: massilia, sans-serif;
-            font-weight: 900;   
+            font-weight: 900;
+            color: #fff;
         }
     }
+    
     .form_wrapper{
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      .form_menu{
-          width: 100%;
-          display: flex;
-          border: 1px solid #b81626;
-          .form_selection{
-              width: 100%;
-              height: 3rem;
-              display: grid;
-              place-content: center;
-              transition: background .5s ease;
-              cursor: pointer;
-              p{
-                font-size: 1rem;
-                text-align: center;
-                font-family: massilia, sans-serif;
-                font-weight: 900;
-                text-transform: uppercase;
-                color: #b81626;
-              }
-          }
-          .selected_form{
-            background: linear-gradient(to right, #b81626, #800915, #620912);
-            background-size: 200% 200%;
-            animation: gradientAnimation 5s linear infinite;
-            p{
-              color: #fff;
-            }
-          }
-      }
       .form_slide{
-        height: 55dvh;
-        display: flex;
-        background: linear-gradient(to right, #b81626, #800915, #620912);
-        background-size: 200% 200%;
-        animation: gradientAnimation 5s linear infinite;
-        overflow: hidden;
+        background-color: #fff;
         .form_container{
           min-width: 100%;
           padding: 1rem;
           transition: transform .5s ease;
-          overflow: scroll;
           .form{
             display: grid;
             gap: 1rem;
@@ -70,15 +37,14 @@
               flex-direction: column-reverse;
               gap: .2rem;
               font-size: .8rem;
-              color: #fff;
+              color: #b81626;
               .form_input{
                 height: 2rem;
                 border: none;
-                border-bottom: 1px solid #fff;
+                border-bottom: 1px solid #b81626;
                 transition: border-bottom .25s ease;
                 font-size: 1rem;
                 background-color: transparent;
-                color: #fff;
                 &:focus{
                     outline: none;
                     border-bottom: 1px solid #1d1d1b ;
@@ -87,10 +53,9 @@
               .form_textarea{
                 height: 25dvh;
                 padding: .5rem;
-                border: 1px solid #fff;
+                border: 1px solid #b81626;
                 font-size: 1.25rem;
                 background-color: transparent;
-                color: #fff;
                 resize: none;
                 &:focus{
                     outline: none;
@@ -107,8 +72,8 @@
               text-transform: uppercase;
               font-weight: 800;
               transition: background-color .25s ease, color .25s ease;
-              background-color: rgb(226, 230, 235);
-              color: #b81626;
+              background-color: #b81626;
+              color: rgb(226, 230, 235);
               cursor: pointer;
               &:hover{
                   background-color: #1b1d1d;
@@ -121,6 +86,44 @@
           transform: translateX(-100%);
         }
       }
+    }
+}
+
+@media screen and (min-width: 768px) {
+  .contact_wrapper{
+    padding: 2rem 4rem;
+    .form_wrapper .form_slide .form_container{
+      padding: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .contact_wrapper{
+    padding: 3rem 8rem;
+    .form_wrapper{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .form_slide{
+        width: 100%;
+        max-width: 800px;
+        .form_container{
+          padding: 2rem;
+          align-self: center;
+          .form{
+            .form_label{
+              font-size: 1rem;
+            }
+            .submit_form{
+              height: 3rem;
+              width: 6rem;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
