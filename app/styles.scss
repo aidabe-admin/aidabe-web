@@ -262,6 +262,48 @@ body{
         }
     }
 
+    .blog-post-wrapper{
+        margin-top: 5rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .blog-post-title{
+            font-size: 1.6rem;
+            line-height: 2rem;
+            font-family: "massilia", sans-serif;
+            font-weight: 900;
+            font-style: normal;
+        }
+        .credits{
+            display: grid;
+            gap: .1rem;
+            font-weight: 800;
+            .written-by{
+                color: #91918d;
+            }
+            .post-date{
+                color: $aidabe-red;
+            }
+        }
+        .content-wrapper{
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            p{
+                font-size: 1rem;
+                line-height: 1.4rem;
+            }
+            .blog-content-list{
+                margin-left: 1.2rem;
+                list-style-type: initial;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    }
+
     .events-wrapper{
         margin-top: 5rem;
         padding: 2rem;
@@ -659,6 +701,29 @@ body{
             }
         }
 
+        .blog-post-wrapper{
+            padding: 2rem 4rem;
+            gap: 1.5rem;
+            .blog-post-title{
+                font-size: 2rem;
+                line-height: initial;
+            }
+            .credits{
+                font-size: 1.1rem;
+            }
+            .content-wrapper{
+                gap: 2rem;
+                p{
+                    font-size: 1.2rem;
+                    line-height: initial;
+                }
+                .blog-content-list{
+                    font-size: 1.2rem;
+                    gap: 1.5rem;
+                }
+            }
+        }
+
         .events-wrapper{
             padding: 2rem 4rem;
             .section-title{
@@ -771,6 +836,21 @@ body{
                     #close-modal{
                         right: 3rem;
                     }
+                }
+            }
+        }
+
+        .blog-post-wrapper{
+            padding: 3rem 8rem;
+            gap: 2rem;
+            .content-wrapper{
+                gap: 2rem;
+                p{
+                    font-size: 1.3rem;
+                }
+                .blog-content-list{
+                    font-size: 1.3rem;
+                    gap: 1.5rem;
                 }
             }
         }

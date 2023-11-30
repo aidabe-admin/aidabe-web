@@ -24,7 +24,7 @@ const articles = [
       title: 'La transparencia en la restauración: ¿Una moda o una necesidad?',
       image: '/post-1.jpg',
       text: 'Transparencia en la restauración: Más allá de las modas, un análisis reflexivo y realista.',
-      link: '/titulo-1',
+      link: '/transparencia-en-la-restauracion-moda-o-necesidad',
       alt: 'Lorem ipsum dolor sit amet.'
     },
     {
