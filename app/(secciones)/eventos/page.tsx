@@ -11,30 +11,35 @@ export default function Events() {
       title: 'Evento 1',
       description: 'Reseña evento 1',
       date: new Date('2024-01-15'),
+      link: "/eventos/evento-1"
     },
     {
       id: 2,
       title: 'Evento 2',
       description: 'Reseña evento 2',
       date: new Date('2024-02-28'),
+      link: "/eventos/evento-2"
     },
     {
       id: 3,
       title: 'Evento 3',
       description: 'Reseña evento 3',
       date: new Date('2024-03-10'),
+      link: "/eventos/evento-3"
     },
     {
       id: 4,
       title: 'Evento 4',
       description: 'Reseña evento 4',
       date: new Date('2024-03-22'),
+      link: "/eventos/evento-4"
     },
     {
       id: 5,
       title: 'Evento 5',
       description: 'Reseña evento 4',
       date: new Date('2023-01-22'),
+      link: "/eventos/evento-5"
     },
   ];
 
@@ -102,7 +107,7 @@ export default function Events() {
                       <p className='event-date'>{event.date.getDate()}.{event.date.getMonth() + 1}.{event.date.getFullYear()}</p>
                       <p className="event-desc">{event.description}</p>
                     </div>
-                    <Link href="/" className="event-link"><p className='link-text'>Ver más</p></Link>
+                    <Link href={event.link} className="event-link"><p className='link-text'>Ver más</p></Link>
                   </div>
                 </li>
               ))}

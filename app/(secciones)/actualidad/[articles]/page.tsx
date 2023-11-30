@@ -8,7 +8,9 @@ export default function Page({ params }: { params: { articles: string } }) {
   return (
     <main className="blog-post-wrapper">
       {getPost ? (
+        <div className="blog-post">
           <Post />
+        </div>
       ) : (
         <NotFound />
       )}

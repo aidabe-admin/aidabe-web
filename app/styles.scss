@@ -262,44 +262,60 @@ body{
         }
     }
 
-    .blog-post-wrapper{
+    .blog-post-wrapper, .event-post-wrapper{
         margin-top: 5rem;
         padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        .blog-post-title{
-            font-size: 1.6rem;
-            line-height: 2rem;
-            font-family: "massilia", sans-serif;
-            font-weight: 900;
-            font-style: normal;
-        }
-        .credits{
-            display: grid;
-            gap: .1rem;
-            font-weight: 800;
-            .written-by{
-                color: #91918d;
-            }
-            .post-date{
-                color: $aidabe-red;
-            }
-        }
-        .content-wrapper{
+        .blog-post, .event-post{
             display: flex;
             flex-direction: column;
-            gap: 1.3rem;
-            p{
-                font-size: 1rem;
-                line-height: 1.4rem;
+            gap: 1rem;
+            .blog-post-title{
+                font-size: 1.6rem;
+                line-height: 2rem;
+                font-family: "massilia", sans-serif;
+                font-weight: 900;
+                font-style: normal;
             }
-            .blog-content-list{
-                margin-left: 1.2rem;
-                list-style-type: initial;
+            .post-epigraph{
+                margin-top: -.5rem;
+                color: #91918d;
+                font-size: .8rem;
+            }
+            .credits{
+                display: grid;
+                gap: .1rem;
+                font-weight: 800;
+                .written-by{
+                    color: #91918d;
+                }
+                .post-date{
+                    color: $aidabe-red;
+                }
+            }
+            .blog-post-img{
+                width: 100%;
+                aspect-ratio: 16/10;
+                position: relative;
+            }
+            hr{
+                width: 66%;
+                border-color: #b81626;
+            }
+            .content-wrapper{
                 display: flex;
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.3rem;
+                p{
+                    font-size: 1rem;
+                    line-height: 1.4rem;
+                }
+                .blog-content-list{
+                    margin-left: 1.2rem;
+                    list-style-type: initial;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
             }
         }
     }
@@ -703,23 +719,31 @@ body{
 
         .blog-post-wrapper{
             padding: 2rem 4rem;
-            gap: 1.5rem;
-            .blog-post-title{
-                font-size: 2rem;
-                line-height: initial;
-            }
-            .credits{
-                font-size: 1.1rem;
-            }
-            .content-wrapper{
-                gap: 2rem;
-                p{
-                    font-size: 1.2rem;
+            .blog-post{
+                gap: 1.5rem;
+                .blog-post-title{
+                    font-size: 2rem;
                     line-height: initial;
                 }
-                .blog-content-list{
-                    font-size: 1.2rem;
-                    gap: 1.5rem;
+                .credits{
+                    font-size: 1.1rem;
+                }
+                .blog-post-img{
+                    width: 80%;
+                    margin-bottom: 1rem;
+                    align-self: center;
+                }
+                .content-wrapper{
+                    margin-top: 1rem;
+                    gap: 2rem;
+                    p{
+                        font-size: 1.2rem;
+                        line-height: initial;
+                    }
+                    .blog-content-list{
+                        font-size: 1.2rem;
+                        gap: 1.5rem;
+                    }
                 }
             }
         }
@@ -843,14 +867,24 @@ body{
         .blog-post-wrapper{
             padding: 3rem 8rem;
             gap: 2rem;
-            .content-wrapper{
-                gap: 2rem;
-                p{
-                    font-size: 1.3rem;
+            display: flex;
+            justify-content: center;
+            .blog-post{
+                max-width: 1000px;
+                .blog-post-img{
+                    width: unset;
+                    height: 50dvh;
+                    align-self: start;
                 }
-                .blog-content-list{
-                    font-size: 1.3rem;
-                    gap: 1.5rem;
+                .content-wrapper{
+                    gap: 2rem;
+                    p{
+                        font-size: 1.3rem;
+                    }
+                    .blog-content-list{
+                        font-size: 1.3rem;
+                        gap: 1.5rem;
+                    }
                 }
             }
         }

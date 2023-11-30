@@ -1,0 +1,23 @@
+[
+    {
+      "title": "Aidabe en HIP",
+      "image": "/post-1.jpg",
+      "post": "@/app/content/post-1.mdx",
+      "link": "/evento-1",
+      "alt": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "title": "Título 2",
+      "image": "/post-2.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+      "link": "/titulo-2",
+      "alt": "Lorem ipsum dolor sit amet."
+    },
+    {
+      "title": "Título 3",
+      "image": "/post-3.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+      "link": "/titulo-3",
+      "alt": "Lorem ipsum dolor sit amet."
+    }
+  ]
