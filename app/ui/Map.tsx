@@ -7,15 +7,12 @@ import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 const Map = () => {
-
-    const coord = [37.38082, -5.97932];
-
     return (
         <div id='g-maps'>
             <MapContainer style={{
                 height: '100dvh',
                 width: '100dvw'
-            }} center={coord} zoom={25} scrollWheelZoom={false}>
+            }} center={[37.38082, -5.97932]} zoom={25} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -31,7 +28,7 @@ const Map = () => {
                         shadowUrl: MarkerShadow.src,
                         shadowSize: [41, 41],
                     })
-                } position={coord}>
+                } position={[37.38082, -5.97932]}>
                      <Popup>
                         A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
