@@ -3,6 +3,7 @@ import Image from "next/image";
 import FooterList from "@/app/ui/footerList";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import Map from '@/app/ui/Map'
 
 const sections = [
     { title: "Actualidad", href: "/actualidad" },
@@ -20,6 +21,7 @@ const legals = [
 ];
 
 export default function Footer() {
+
     return(
         <footer className="footer">
             <div id="footer-logo-container">
@@ -51,8 +53,7 @@ export default function Footer() {
                 </ul>
             </div>
             <div id="address-container">
-                <div id="g-maps">
-                </div>
+                <Map />
                 <div id="addresses">
                     <p><strong>Dirección:</strong> Avda. de la Buhaira 31, 1ºC, 48100 Sevilla</p>
                     <p><strong>E-mail:</strong> info@aidabe.org</p>

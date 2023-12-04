@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import styles from '@/app/components/layout/styles/carousel.module.scss';
 
 import Button from "@/app/ui/button";
+import ImageContainer from "@/app/ui/ImageContainer";
 
 interface Slide {
     title: string;
@@ -54,9 +55,7 @@ export default function Slider({ content }: SliderProps) {
                             className={`${styles.slide} ${index === activeSlide ? styles.activeSlide : ""}`}
                             style={{ width: `${slideWidth}%` }}
                         >
-                            <div className={styles.slideImg}>
-                                <Image fill src={slide.image} alt={slide.title} />
-                            </div>
+                            <ImageContainer className={styles.slideImg} image={slide.image} alt={slide.title} />
                             <div className={styles.slideMask}></div>
                             <div className={styles.slideData}>
                                 <h4 className={styles.slideTitle}>{slide.title}</h4>

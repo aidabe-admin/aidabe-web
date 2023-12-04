@@ -4,7 +4,18 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    background-color: #b81626;
+    background: linear-gradient(to right, #b81626, #800915, #620912);
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s linear infinite;
+    .title_container{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        align-items: center;
+        .section_subtitle{
+            color: #fff;
+        }
+    }
     .blogLayout{
         width: 100%;
         display: grid;
@@ -90,6 +101,11 @@
     .blogLayout_cont{
         padding: 2rem 4rem;
         gap: 2.5rem;
+        .title_container{
+            .section_subtitle{
+                font-size: 1.2rem;
+            }
+        }
         .blogLayout{
             gap: 1.5rem;
             grid-template-columns: 1fr 1fr;
@@ -100,8 +116,39 @@
 @media screen and (min-width: 1024px) {
     .blogLayout_cont{
         padding: 3rem 8rem;
+        .title_container{
+            .section_subtitle{
+                font-size: 1.3rem;
+            }
+        }
         .blogLayout{
             grid-template-columns: repeat(3, 1fr);
+            .blogPost{
+                .blogPost_dataCont{
+                    .blogPost_text{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    .blogLayout_cont{
+        .blogLayout{
+            .blogPost{
+                .blogPost_dataCont{
+                    .blogPost_title{
+                        font-size: 1.7rem;
+                    }
+                    .blogPost_text{
+                        display: inline-block;
+                        font-size: 1.1rem;
+                        line-height: initial;
+                    }
+                }
+            }
         }
     }
 }
@@ -114,3 +161,15 @@
         opacity: 1;
     }
 }
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

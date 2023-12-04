@@ -8,6 +8,7 @@ import Button from '@/app/ui/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import data from '@/data/countries.json'
+import Image from 'next/image';
 
 const partners = [
     {
@@ -38,16 +39,24 @@ const partners = [
 
 const benefits = [{
     title: "01. contenido exclusivo",
-    text: "Informes del sector, estudios de tendencias, artículos y entrevistas exclusivas."
+    text: "Informes del sector, estudios de tendencias, artículos y entrevistas exclusivas.",
+    img: "/candado.png",
+    aspect_ratio: "75/98"
 },{
     title: "02. eventos",
-    text: "Descuento en eventos del sector, invitación a eventos promovidos por AIDABE."
+    text: "Descuento en eventos del sector, invitación a eventos promovidos por AIDABE.",
+    img: "/calendario.png",
+    aspect_ratio: "1"
 },{
     title: "03. marcas líderes",
-    text: "AIDABE llega a acuerdos exclusivos con marcas líderes de los que podrás beneficiarte tu y tu negocio por ser miembro de la asociación."
+    text: "AIDABE llega a acuerdos exclusivos con marcas líderes de los que podrás beneficiarte tu y tu negocio por ser miembro de la asociación.",
+    img: "/podio.png",
+    aspect_ratio: "3/2"
 },{
     title: "04. cursos y formaciones",
-    text: "Obtendrás descuentos para realizar programas formativos que te ayudarán a impulsar tu carrera profesional."
+    text: "Obtendrás descuentos para realizar programas formativos que te ayudarán a impulsar tu carrera profesional.",
+    img: "/grafico.png",
+    aspect_ratio: "3/2"
 }
 ]
 
@@ -161,7 +170,9 @@ openIndex === index ? styles.open_description_cont : ''}`}>
                         <div className={styles.benefit} key={index}>
                             <div className={styles.benefit_img}>
                                 <div className={styles.benefit_background} />
-                                <div className={styles.img} />
+                                <div className={styles.img} style={{aspectRatio: `${benefit.aspect_ratio}`}}>
+                                    <Image src={benefit.img} fill alt={benefit.title} />
+                                </div>
                             </div>
                             <div className={styles.benefit_text}>
                                 <h5 className={styles.benefit_title}>{benefit.title}</h5>
@@ -191,7 +202,7 @@ openIndex === index ? styles.open_description_cont : ''}`}>
                             ))}
                             <label htmlFor="country" className={styles.form_label}>
                                 País de residencia:
-                                <select id="country" value={selectedCountry} onChange={handleCountryChange}>
+                                <select id="country" value={selectedCountry} onChange={handleCountryChange} className={styles.form_select}>
                                     <option value="">-</option>
                                     {data.map((country) => (
                                     <option key={country.country_id} value={country.country_id}>
@@ -203,7 +214,7 @@ openIndex === index ? styles.open_description_cont : ''}`}>
 
                             <label htmlFor="state" className={styles.form_label}>
                                 Provincia/Estado:
-                                <select id="state" value={selectedState} onChange={handleStateChange} disabled={!selectedCountry}>
+                                <select id="state" value={selectedState} onChange={handleStateChange} disabled={!selectedCountry} className={styles.form_select}>
                                     <option value="">-</option>
                                     {selectedCountry &&
                                     data

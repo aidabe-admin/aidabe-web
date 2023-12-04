@@ -1,5 +1,5 @@
 import Carousel from "@/app/components/layout/Carousel";
-import BlogLayout from "@/app/components/layout/BlogLayout";
+import Blog from "@/app/components/layout/Blog";
 import Board from "@/app/components/layout/Board";
 import Partners from "@/app/components/layout/Partners";
 
@@ -30,25 +30,39 @@ export default function Home() {
 
   const posts = [
     {
-      title: 'Título 1',
+      title: 'La transparencia en la restauración: ¿Una moda o una necesidad?',
       image: '/post-1.jpg',
-      text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-      link: '/',
+      text: 'Transparencia en la restauración: Más allá de las modas, un análisis reflexivo y realista.',
+      link: '/actualidad/transparencia-en-la-restauracion-moda-o-necesidad',
       alt: 'Lorem ipsum dolor sit amet.'
     },
     {
-      title: 'Título 2',
+      title: 'Innovación gastronómica: Tendencias que marcan el rumbo en el 2023',
       image: '/post-2.jpg',
-      text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-      link: '/',
-      alt: 'Lorem ipsum dolor sit amet.'
+      text: 'Descubre las tendencias más destacadas en la innovación gastronómica que están revolucionando la industria de alimentos y bebidas en el presente año.',
+      link: '/actualidad/innovacion-gastronomica-tendencias-2023',
+      alt: 'Plato innovador en mesa.'
     },
     {
-      title: 'Título 3',
+      title: 'Desafíos regulatorios en la industria alimentaria: Una mirada integral',
       image: '/post-3.jpg',
-      text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-      link: '/',
-      alt: 'Lorem ipsum dolor sit amet.'
+      text: 'Exploramos los desafíos regulatorios que enfrenta la industria alimentaria hoy en día y cómo los directores de alimentos y bebidas pueden abordarlos de manera efectiva.',
+      link: '/actualidad/desafios-regulatorios-industria-alimentaria',
+      alt: 'Etiquetas y regulaciones alimentarias.'
+    },
+    {
+      title: 'Sostenibilidad en la cadena de suministro: El papel de AIDABE',
+      image: '/post-4.jpg',
+      text: 'Analizamos la importancia de la sostenibilidad en la cadena de suministro de alimentos y bebidas, y cómo la AIDABE está contribuyendo a impulsar prácticas más sostenibles en la industria.',
+      link: '/actualidad/sostenibilidad-cadena-suministro-aidabe',
+      alt: 'Cadena de suministro sostenible.'
+    },
+    {
+      title: 'La experiencia del cliente en la restauración: Claves para el éxito',
+      image: '/post-5.jpg',
+      text: 'Exploramos cómo la experiencia del cliente se ha convertido en un factor clave para el éxito en la industria de la restauración y cómo los directores de alimentos y bebidas pueden mejorarla.',
+      link: '/actualidad/experiencia-cliente-restauracion-claves',
+      alt: 'Clientes disfrutando de una comida en un restaurante.'
     },
   ];
 
@@ -89,7 +103,7 @@ export default function Home() {
   return (
     <main className="content-wrapper main-wrapper">
         <Carousel content={slides} />
-        <BlogLayout posts={posts} />
+        <Blog posts={posts.slice(0, 3)} />
         <Board board={board} />
         <Partners />
     </main>

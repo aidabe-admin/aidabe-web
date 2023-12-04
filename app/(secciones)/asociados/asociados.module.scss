@@ -140,12 +140,10 @@
                     background-color: #fff;
                 }
                 .img{
-                    width: 50px;
-                    height: 80px;
+                    height: 70px;
                     position: absolute;
                     right: 20%;
                     bottom: 15px;
-                    background-color: #1d1d1b;
                 }
             }
             .benefit_text{
@@ -211,6 +209,19 @@
                       border-bottom: 1px solid #1d1d1b ;
                   }
                 }
+                .form_select{
+                    height: 2rem;
+                    border: none;
+                    border-bottom: 1px solid #b81626;
+                    transition: border-bottom .25s ease;
+                    font-size: 1rem;
+                    background-color: transparent;
+                    &:focus{
+                        outline: none;
+                        border-bottom: 1px solid #1d1d1b ;
+                    }
+                  }
+                }
                 .form_textarea{
                   height: 25dvh;
                   padding: .5rem;
@@ -247,7 +258,6 @@
           transform: translateX(-100%);
         }
     }
-}
 
 @media screen and (min-width: 425px) {
     .contact{

@@ -7,18 +7,6 @@ import styles from '@/app/(secciones)/actualidad/actualidad.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface Article {
-    title: string;
-    image: string;
-    text: string;
-    link: string;
-    alt: string;
-}
-
-interface ArticleDetail {
-    articles: Article[];
-}
-
 const articles = [
     {
       title: 'La transparencia en la restauración: ¿Una moda o una necesidad?',
@@ -28,24 +16,37 @@ const articles = [
       alt: 'Lorem ipsum dolor sit amet.'
     },
     {
-      title: 'Título 2',
+      title: 'Innovación gastronómica: Tendencias que marcan el rumbo en el 2023',
       image: '/post-2.jpg',
-      text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-      link: '/titulo-2',
-      alt: 'Lorem ipsum dolor sit amet.'
+      text: 'Descubre las tendencias más destacadas en la innovación gastronómica que están revolucionando la industria de alimentos y bebidas en el presente año.',
+      link: '/innovacion-gastronomica-tendencias-2023',
+      alt: 'Plato innovador en mesa.'
     },
     {
-      title: 'Título 3',
+      title: 'Desafíos regulatorios en la industria alimentaria: Una mirada integral',
       image: '/post-3.jpg',
-      text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-      link: '/titulo-3',
-      alt: 'Lorem ipsum dolor sit amet.'
+      text: 'Exploramos los desafíos regulatorios que enfrenta la industria alimentaria hoy en día y cómo los directores de alimentos y bebidas pueden abordarlos de manera efectiva.',
+      link: '/desafios-regulatorios-industria-alimentaria',
+      alt: 'Etiquetas y regulaciones alimentarias.'
     },
-  ];
-
+    {
+      title: 'Sostenibilidad en la cadena de suministro: El papel de AIDABE',
+      image: '/post-4.jpg',
+      text: 'Analizamos la importancia de la sostenibilidad en la cadena de suministro de alimentos y bebidas, y cómo la AIDABE está contribuyendo a impulsar prácticas más sostenibles en la industria.',
+      link: '/sostenibilidad-cadena-suministro-aidabe',
+      alt: 'Cadena de suministro sostenible.'
+    },
+    {
+      title: 'La experiencia del cliente en la restauración: Claves para el éxito',
+      image: '/post-5.jpg',
+      text: 'Exploramos cómo la experiencia del cliente se ha convertido en un factor clave para el éxito en la industria de la restauración y cómo los directores de alimentos y bebidas pueden mejorarla.',
+      link: '/experiencia-cliente-restauracion-claves',
+      alt: 'Clientes disfrutando de una comida en un restaurante.'
+    },
+];
 
 export default function Blog() {
-    const itemsPerPage = 2;
+    const itemsPerPage = 4;
 
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -55,6 +56,11 @@ export default function Blog() {
     const totalPages = Math.ceil(articles.length / itemsPerPage);
 
     const handlePageChange = (newPage: number) => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+        
         setCurrentPage(newPage);
     };
 

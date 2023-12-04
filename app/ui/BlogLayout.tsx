@@ -1,10 +1,9 @@
 import styles from '@/app/components/layout/styles/blog-layout.module.scss'
-import Button from '@/app/ui/button';
-import SectionTitle from '@/app/ui/sectionTitle';
-import Image from 'next/image';
-import Link from 'next/link';
 
-interface BlogPosts {
+import Image from "next/image";
+import Link from "next/link";
+
+interface BlogPost {
     title: string;
     image: string;
     text: string;
@@ -12,17 +11,15 @@ interface BlogPosts {
     alt: string;
 }
 
-interface PostDetail {
-    posts: BlogPosts[];
+interface BlogLayoutProps {
+    posts: BlogPost[];
 }
 
-export default function BlogLayout({posts}: PostDetail){
-    return(
-        <section className={styles.blogLayout_cont}>
-            <SectionTitle title="Actualidad" color={true} />
-            <div className={styles.blogLayout}>
+export default function BlogLayout({ posts }: BlogLayoutProps) {
+    return (
+        <div className={styles.blogLayout}>
                 {posts.map((post) => (
-                    <div className={styles.blogPost} key={post.title}>
+                    <Link className={styles.blogPost} key={post.title} href={post.link}>
                         <div className={styles.blogPost_imgContainer}>
                             <Image
                                 alt={post.alt}
@@ -31,21 +28,17 @@ export default function BlogLayout({posts}: PostDetail){
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                         </div>
-                        <Link className={styles.blogPost_mask} href={post.link}>
+                        <div className={styles.blogPost_mask}>
                             <p className={styles.blogPost_link}>leer más</p>
-                        </Link>
+                        </div>
                         <div className={styles.blogPost_dataCont}>
                             <h4 className={styles.blogPost_title}>
                                 {post.title}
                             </h4>
                             <p className={styles.blogPost_text}>{post.text}</p>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
-            <Link href="/actualidad">
-                <Button text='ver más' style='default' />
-            </Link>
-        </section>
     )
 }

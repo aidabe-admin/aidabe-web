@@ -160,7 +160,7 @@
         padding: 0 4rem;
         .blogPost{
             .blogPost_dataCont{
-                padding: 2rem;
+                padding: 1.5rem;
             }
         }
     }
@@ -188,6 +188,10 @@
     }
 }
 
+@media screen and (min-width: 1250px) {
+    
+}
+
 @media screen and (min-width: 1440px) {
     .section_header{
         .section_subtitle{
@@ -198,13 +202,9 @@
         grid-template-columns: repeat(3, 1fr);
         .blogPost{
             .blogPost_dataCont{
-                padding: 2rem;
-                .blogPost_title{
-                    font-size: 2.25rem;
-                }
                 .blogPost_text{
-                    font-size: 1.25rem;
-                    line-height: 1.7rem;
+                    font-size: 1.2rem;
+                    line-height: initial;
                 }
             }
         }

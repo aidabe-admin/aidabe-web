@@ -1,7 +1,7 @@
 import styles from '@/app/(secciones)/asociacion/asociacion.module.scss';
 
 import Button from '@/app/ui/button';
-import Members from '@/app/components/layout/Board';
+import BoardLayout from '@/app/ui/BoardLayout';
 
 export default function Board() {
     const board = [
@@ -90,7 +90,7 @@ export default function Board() {
                     </li>
                 </ul>
             </section>
-            <Members board={board} />
+            <BoardLayout board={board} />
         </section>
     )
 }
