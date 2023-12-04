@@ -44,7 +44,7 @@ export default function BoardLayout({board} : Board) {
 
     return(
         <>
-            <div className={styles.board_cont}>
+            <div className={styles.board_container}>
                 <div className={styles.boardLayout_cont}>
                     <h3 className={styles.boardSubtitle}>Conoce a quienes impulsan a AIDABE</h3>
                     <div className={styles.boardLayout}>

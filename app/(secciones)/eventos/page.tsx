@@ -8,10 +8,10 @@ export default function Events() {
   const events = [
     {
       id: 1,
-      title: 'Evento 1',
-      description: 'Reseña evento 1',
+      title: 'Aidabe en HIP',
+      description: 'El principal evento de innovación para impulsar el sector horeca',
       date: new Date('2024-01-15'),
-      link: "/eventos/evento-1"
+      link: "/eventos/aidabe-en-hip"
     },
     {
       id: 2,

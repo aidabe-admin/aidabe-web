@@ -1,0 +1,166 @@
+.blogLayout_cont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    .blogLayout{
+        width: 100%;
+        display: grid;
+        gap: 1rem;
+        .blogPost{
+            width: 100%;
+            aspect-ratio: 1;
+            display: grid;
+            justify-items: center;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            &:hover{
+                .blogPost_mask{
+                    background-color: rgba(183, 21, 38, .9);
+                    .blogPost_link{
+                        opacity: 1;
+                    }
+                }
+                .blogPost_dataCont{
+                    opacity: 0;
+                }
+            }
+            .blogPost_imgContainer{
+                height: 100%;
+                aspect-ratio: 16/10;
+                position: absolute;
+            }
+            .blogPost_mask{
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-content: center;
+                position: absolute;
+                opacity: .75;
+                transition: background-color .5s ease;
+                background-color: rgba(28, 28, 28, 0.75);
+                .blogPost_link{
+                    font-size: 1.5rem;
+                    text-transform: uppercase;
+                    opacity: 0;
+                    font-family: massilia, sans-serif;
+                    font-weight: 900;
+                    transition: opacity .5s ease;
+                    color: #fff;
+                }
+            }
+            .blogPost_dataCont{
+                width: 100%;
+                height: 100%;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                gap: .5rem;
+                position: absolute;
+                opacity: 1;
+                transition: opacity .25s ease;
+                color: #fff;
+                .blogPost_title{
+                    margin: .5rem 0;
+                    font-size: 1.5rem;
+                    font-family: massilia, sans-serif;
+                    font-weight: 900;
+                    opacity: 0;
+                    animation: fade-in .5s ease forwards;
+                    animation-delay: .25s;
+                }
+                .blogPost_text{
+                    margin-bottom: .5rem;
+                    font-size: .9rem;
+                    line-height: 1.3rem;
+                    opacity: 0;
+                    animation: fade-in .5s ease forwards;
+                    animation-delay: .5s;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .blogLayout_cont{
+        gap: 2.5rem;
+        .title_container{
+            .section_subtitle{
+                font-size: 1.2rem;
+            }
+        }
+        .blogLayout{
+            gap: .5rem;
+            grid-template-columns: repeat(3, 1fr);
+            .blogPost{
+                .blogPost_text{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .blogLayout_cont{
+        .title_container{
+            .section_subtitle{
+                font-size: 1.3rem;
+            }
+        }
+        .blogLayout{
+            grid-template-columns: repeat(3, 1fr);
+            .blogPost{
+                .blogPost_dataCont{
+                    .blogPost_text{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    .blogLayout_cont{
+        .blogLayout{
+            .blogPost{
+                .blogPost_dataCont{
+                    .blogPost_title{
+                        font-size: 1.7rem;
+                    }
+                    .blogPost_text{
+                        display: inline-block;
+                        font-size: 1.1rem;
+                        line-height: initial;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

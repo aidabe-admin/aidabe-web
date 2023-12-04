@@ -16,8 +16,8 @@ export default function Home() {
         title: "HIP",
         image: "/carousel-2.jpg",
         subtitle: "El principal evento de innovación para impulsar el sector horeca",
-        link: null,
-        button: null
+        link: "/eventos/aidabe-en-hip",
+        button: "ver más"
     },
     {
         title: "Hazte socio",

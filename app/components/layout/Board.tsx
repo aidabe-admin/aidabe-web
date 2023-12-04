@@ -20,7 +20,7 @@ interface Board {
 
 export default function Board({board} : Board) {
     return(
-        <section className={styles.board_cont}>
+        <section className={styles.board_container}>
             <SectionTitle title='La asociación' />
             <div className={styles.boardDetails_cont}>
                 <p className={styles.boardDetails}>

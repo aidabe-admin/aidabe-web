@@ -1,10 +1,11 @@
-.board_cont{
+.board_container{
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    justify-items: center;
     gap: 1rem;
     .boardDetails_cont{
+        display: flex;
+        justify-content: center;
         .boardDetails{
             text-align: justify;
         }
@@ -79,10 +80,11 @@
 }
 
 @media screen and (min-width: 768px) {
-    .board_cont{
+    .board_container{
         padding: 2rem 4rem;
         .boardDetails_cont{
             .boardDetails{
+                width: 80%;
                 font-size: 1.2rem;
             }
         }
@@ -90,7 +92,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .board_cont{
+    .board_container{
         padding: 3rem 8rem;
         gap: 1.5rem;
         .boardDetails_cont{
@@ -113,8 +115,11 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .board_cont{
+    .board_container{
         .boardLayout_cont{
+            .boardDetails{
+                width: 75%;
+            }
             .boardLayout{
                 gap: 2rem;
             }

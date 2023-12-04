@@ -59,7 +59,9 @@
 }
 
 .proposito{
-    background-color: #b81626;
+    background: linear-gradient(to right, #b81626, #800915, #620912);
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s linear infinite;
     color: #fff;
 }
 
@@ -125,3 +127,15 @@
         transform: translateX(0);
     }
 }
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
