@@ -11,10 +11,10 @@ export default function Page({ params }: { params: { articles: string } }) {
   const getPost = posts.find((post) => post.link === `/${params.articles}`);
 
   return (
-    <main className="blog-post-wrapper">
+    <main className="post-wrapper">
       {getPost ? (
         <>
-          <div className="blog-post">
+          <div className="post-article">
             <Post />
           </div>
           <div className="latest-posts-cont">
@@ -23,7 +23,7 @@ export default function Page({ params }: { params: { articles: string } }) {
               <div className={styles.blogLayout_cont}>
                 <div className={styles.blogLayout}>
                     {posts.slice(0,3).map((post) => (
-                        <Link className={styles.blogPost} key={post.title} href={post.link}>
+                        <Link className={styles.blogPost} key={post.title} href={`/actualidad/${post.link}`}>
                             <div className={styles.blogPost_imgContainer}>
                                 <Image
                                     alt={post.alt}

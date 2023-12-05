@@ -12,6 +12,7 @@ interface Slide {
     subtitle: string;
     link: string | null;
     button: string | null;
+    priority: boolean;
 }
 
 interface SliderProps {
@@ -53,7 +54,7 @@ export default function Slider({ content }: SliderProps) {
                             className={`slide ${index === activeSlide ? "active-slide" : ""}`}
                             style={{ width: `${slideWidth}%` }}
                         >
-                            <ImageContainer className="slide-img" image={slide.image} alt={slide.title} />
+                            <ImageContainer className="slide-img" image={slide.image} alt={slide.title} priority={slide.priority} />
                             <div className="slide-mask"></div>
                             <div className="slide-data">
                                 <h4 className="slide-title">{slide.title}</h4>

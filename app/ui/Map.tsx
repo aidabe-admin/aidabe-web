@@ -4,7 +4,7 @@ import L from 'leaflet'
 import MarkerIcon from '@/node_modules/leaflet/dist/images/marker-icon.png'
 import MarkerShadow from '@/node_modules/leaflet/dist/images/marker-shadow.png'
 import 'leaflet/dist/leaflet.css'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 
 const Map = () => {
     return (
@@ -12,7 +12,7 @@ const Map = () => {
             <MapContainer style={{
                 height: '100dvh',
                 width: '100dvw'
-            }} center={[37.38082, -5.97932]} zoom={25} scrollWheelZoom={false}>
+            }} center={[37.38082, -5.97932]} zoom={25}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -27,11 +27,10 @@ const Map = () => {
                         popupAnchor: [0, -41],
                         shadowUrl: MarkerShadow.src,
                         shadowSize: [41, 41],
+                        keyboard: false,
+                    
                     })
                 } position={[37.38082, -5.97932]}>
-                     <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
                 </Marker>
             </MapContainer>
         </div>

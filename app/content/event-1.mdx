@@ -1,30 +1,25 @@
-import BlogImg from "@/app/components/mdx/blogImg"
+import BlogImg from "@/app/components/mdx/blogImg";
+import SectionTitle from '@/app/ui/sectionTitle';
+import ShareList from '@/app/ui/ShareList';
 
-<h2 className="event-post-title">Aidabe en HIP</h2>
-<div className="credits">
-    <p className="post-date">01.01.2023</p>
-</div>
+<header className="post-header">
+    <SectionTitle title="Aidabe en HIP" />
+    <div className="credits">
+        <p className="post-date">01.01.2023</p>
+    </div>
+</header>
 
-<BlogImg src="/event-1.jpg" alt="" />
-<p className="post-epigraph">El evento más importante de innovación para hostelería y restauración.</p>
-<div className="share-list-cont">
-    <p>Compartir vía:</p>
-    <ul className="share-list">
-        <li>Copiar link</li>
-        <li>Facebook</li>
-        <li>Twitter</li>
-    </ul>
+<div className="post-img">
+    <BlogImg src="/event-1.jpg" alt="HIP, el evento más importante de innovación para hostelería y restauración." />
+    <p className="post-epigraph">El evento más importante de innovación para hostelería y restauración.</p>
+    <ShareList />
 </div>
 
 <hr />
 
 <div className="content-wrapper">
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt risus a neque tristique, nec tristique justo tincidunt. Ut aliquet semper tellus, vel interdum ligula venenatis eu. Sed vel arcu vel justo feugiat luctus a at odio. Curabitur auctor nec ex id venenatis. Nunc tincidunt risus vitae diam tristique, nec tincidunt justo auctor. Integer ullamcorper ullamcorper turpis, id tincidunt ligula sodales vel.    
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt risus a neque tristique, nec tristique justo tincidunt. Ut aliquet semper tellus, vel interdum ligula venenatis eu. Sed vel arcu vel justo feugiat luctus a at odio. Curabitur auctor nec ex id venenatis. Nunc tincidunt risus vitae diam tristique, nec tincidunt justo auctor. Integer ullamcorper ullamcorper turpis, id tincidunt ligula sodales vel.    
-    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et felis sed augue aliquam accumsan. In hac habitasse platea dictumst. Suspendisse ullamcorper ipsum et felis facilisis, vitae feugiat urna sodales. Vestibulum id justo eu libero suscipit malesuada. Vivamus non tortor nec arcu sodales hendrerit. Aenean vitae risus et justo vehicula condimentum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et felis sed augue aliquam accumsan. In hac habitasse platea dictumst. Suspendisse ullamcorper ipsum et felis facilisis, vitae feugiat urna sodales. Vestibulum id justo eu libero suscipit malesuada. Vivamus non tortor nec arcu sodales hendrerit. Aenean vitae risus et justo vehicula condimentum.</p>
 </div>
 
 

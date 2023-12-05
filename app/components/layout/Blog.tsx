@@ -1,10 +1,8 @@
-import styles from '@/app/components/layout/styles/blog-layout.module.scss'
-
-import SectionTitle from '@/app/ui/sectionTitle';
 import Link from 'next/link';
 
-import Button from '@/app/ui/button';
+import SectionTitle from '@/app/ui/sectionTitle';
 import BlogLayout from '@/app/ui/BlogLayout';
+import Button from '@/app/ui/button';
 
 interface BlogPosts {
     title: string;
@@ -20,11 +18,11 @@ interface PostDetail {
 
 export default function Blog({posts}: PostDetail){
     return(
-        <section className={styles.blogLayout_cont}>
-            <div className={styles.title_container}>
+        <section className="main-blog">
+            <header className="title-header">
                 <SectionTitle title="Actualidad" color={true} />
-                <p className={styles.section_subtitle}>Nuevos modelos de negocio, innovación, sostenibilidad y las tendencias del sector.</p>
-            </div>
+                <p className="section-subtitle">Nuevos modelos de negocio, innovación, sostenibilidad y las tendencias del sector.</p>
+            </header>
             <BlogLayout posts={posts} /> 
             <Link href="/actualidad">
                 <Button text='ver más' style='default' />

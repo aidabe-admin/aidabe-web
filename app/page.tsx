@@ -10,21 +10,24 @@ export default function Home() {
         image: "/carousel-1.jpg",
         subtitle: "La mayor asociación de directores de F&B de habla hispana",
         link: "/asociacion",
-        button: "ver más"
+        button: "ver más",
+        priority: true
     },
     {
         title: "HIP",
         image: "/carousel-2.jpg",
         subtitle: "El principal evento de innovación para impulsar el sector horeca",
         link: "/eventos/aidabe-en-hip",
-        button: "ver más"
+        button: "ver más",
+        priority: false
     },
     {
         title: "Hazte socio",
         image: "/carousel-3.jpg",
         subtitle: "Forma parte de AIDABE hoy mismo",
         link: "/asociados",
-        button: "ver más"
+        button: "ver más",
+        priority: false
     },
   ];
 

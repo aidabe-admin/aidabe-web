@@ -1,13 +1,22 @@
 import Image from "next/image";
 
-export default function ImageContainer({className, image, alt} : {
+export default function ImageContainer({ className, image, alt, priority }: {
     className: string,
     image: string,
-    alt: string
+    alt: string,
+    priority: boolean
 }) {
-    return(
-        <div className={className}>
-            <Image src={image} alt={alt} fill sizes="100vw" />
-        </div>
-    )
+    return (
+        <>
+            {priority ? (
+                <div className={className}>
+                    <Image src={image} alt={alt} fill sizes="100vw" priority />
+                </div>
+            ) : (
+                <div className={className}>
+                    <Image src={image} alt={alt} fill sizes="100vw" />
+                </div>
+            )}
+        </>
+    );
 }

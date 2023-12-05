@@ -18,6 +18,7 @@
     "@next/mdx": "^14.0.3",
     "@react-google-maps/api": "^2.19.2",
     "@types/mdx": "^2.0.10",
+    "clipboard": "^2.0.11",
     "date-fns": "^2.30.0",
     "json-server": "^0.17.4",
     "leaflet": "^1.9.4",

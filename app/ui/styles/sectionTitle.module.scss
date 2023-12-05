@@ -1,7 +1,7 @@
 .sectionTitle_cont{
     overflow: hidden;
     .sectionTitle{
-        // transform: translateY(150%);
+        transform: translateY(150%);
         transition: transform .5s ease;
         font-size: 2rem;
         font-family: massilia, sans-serif;
@@ -9,6 +9,12 @@
     }
     .sectionTitle_White{
         color: #fff;        
+    }
+}
+
+.active_title{
+    .sectionTitle{
+        transform: translateY(0);
     }
 }
 

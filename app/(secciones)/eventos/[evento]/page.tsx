@@ -6,9 +6,9 @@ export default function Page({ params }: { params: { evento: string } }) {
   const getEvent = events.find((event) => event.link === `/${params.evento}`);
 
   return (
-    <main className="event-post-wrapper">
+    <main className="post-wrapper">
       {getEvent ? (
-        <div className="event-post">
+        <div className="post-article">
           <Event />
         </div>
       ) : (
