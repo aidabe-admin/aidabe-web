@@ -90,7 +90,9 @@ export default function Board() {
                     </li>
                 </ul>
             </section>
-            <BoardLayout board={board} />
+            <div className={styles.board_wrapper}>
+                <BoardLayout board={board} />
+            </div>
         </section>
     )
 }

@@ -1,4 +1,4 @@
-.board_container{
+.board_wrapper{
     padding: 2rem;
     display: grid;
     justify-items: center;
@@ -80,7 +80,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .board_container{
+    .board_wrapper{
         padding: 2rem 4rem;
         .boardDetails_cont{
             .boardDetails{
@@ -92,7 +92,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .board_container{
+    .board_wrapper{
         padding: 3rem 8rem;
         gap: 1.5rem;
         .boardDetails_cont{
