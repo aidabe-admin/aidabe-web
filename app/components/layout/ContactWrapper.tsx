@@ -1,7 +1,10 @@
 "use client"
 
 import styles from '@/app/(secciones)/contacto/contacto.module.scss';
-import { useState } from "react"
+import { useState, useRef } from "react";
+import useIntersectionObserver from '@/app/lib/Intersection';
+
+import Intersected from './Intersected';
 import Button from '@/app/ui/button';
 
 export default function ContactWrapper() {
@@ -36,7 +39,7 @@ export default function ContactWrapper() {
     ]
 
     return (
-        <div className={styles.form_wrapper}>
+        <Intersected className={styles.form_wrapper} active={styles.intersected_form} threshold={0.1}>
 
             <div className={styles.form_slide}>
                 <div
@@ -63,10 +66,12 @@ export default function ContactWrapper() {
                                 required
                             />
                         </label>
-                        <button type="submit" className={styles.submit_form}>Enviar</button>
+                        <div className={styles.submit_container}>
+                            <Button text='enviar' type='submit' />
+                        </div>
                     </form>
                 </div>
             </div>
-        </div>
+        </Intersected>
     )
 }

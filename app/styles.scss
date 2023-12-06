@@ -86,7 +86,7 @@ body{
     }
     .menu{
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
         transform: translateY(-100vh);
         transition: transform .5s ease;
         display: flex;
@@ -417,6 +417,10 @@ body{
         }
     }
 
+    .board-page{
+        display: grid;
+    }
+
     .post-wrapper{
         margin-top: 5rem;
         padding: 2rem;
@@ -526,17 +530,16 @@ body{
         margin-top: 5rem;
         padding: 2rem;
         display: grid;
+        justify-items: center;
         gap: 1rem;
-        .section-title{
-            font-family: "massilia", sans-serif;
-            font-weight: 900;
-            font-size: 2rem;
-            text-align: center;
-            font-style: normal;
-            text-transform: capitalize;
-        }
         .section-text{
             text-align: justify;
+            opacity: 0;
+            transition: opacity .5s ease;
+            transition-delay: .25s;
+        }
+        .active-paragraph{
+            opacity: 1;
         }
         .events{
             margin-top: .5rem;
@@ -555,6 +558,12 @@ body{
                 gap: 2rem;
                 .event-slide{
                     transition: transform .5s ease;
+                    opacity: 0;
+                    transition: opacity .5s ease;
+                    transition-delay: .5s;
+                }
+                .intersected-slide{
+                    opacity: 1;
                 }
                 #events-list-container{
                     display: flex;
@@ -1035,6 +1044,7 @@ body{
 
         .events-wrapper{
             padding: 2rem 4rem;
+            justify-items: unset;
             .section-title{
                 text-align: unset;
                 font-size: 2.6rem;

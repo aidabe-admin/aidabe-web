@@ -2,8 +2,6 @@ import Carousel from "@/app/components/layout/Carousel";
 import Blog from "@/app/components/layout/Blog";
 import Board from "@/app/components/layout/Board";
 import Partners from "@/app/components/layout/Partners";
-import { Suspense } from "react";
-import Loading from "./loading";
 
 export default function Home() {
   const slides = [
@@ -107,12 +105,10 @@ export default function Home() {
 
   return (
     <main className="content-wrapper main-wrapper">
-      <Suspense fallback={<Loading />}>
         <Carousel content={slides} />
         <Blog posts={posts.slice(0, 3)} />
         <Board board={board} />
         <Partners />
-      </Suspense>
     </main>
   )
 }

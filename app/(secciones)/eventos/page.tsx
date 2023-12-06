@@ -1,8 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import useIntersectionObserver from '@/app/lib/Intersection';
 import Link from 'next/link';
+
 import DatePicker from '@/app/ui/datePicker';
+import SectionTitle from '@/app/ui/sectionTitle';
+import Intersected from '@/app/components/layout/Intersected';
 
 export default function Events() {
   const events = [
@@ -43,6 +47,10 @@ export default function Events() {
     },
   ];
 
+  const targetRef = useRef<HTMLDivElement>(null);
+  const isIntersecting = useIntersectionObserver(targetRef, { threshold: 1});
+  const paragraph = isIntersecting ? "active-paragraph" : '';
+
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const currentDate = new Date();
   const sortedEvents = [...events].sort((a, b) => {
@@ -75,46 +83,51 @@ export default function Events() {
 
   return (
     <section className="events-wrapper">
-      <h2 className="section-title">Eventos</h2>
-      <p className='section-text'>
-        Como líderes del sector F&B organizamos eventos propios y participamos en eventos de otros actores para debatir, compartir perspectivas y horizontes y contribuir a su posicionamiento y crecimiento económico. Aquí puedes consultar los próximos eventos en los que estaremos presentes
-      </p>
+      <SectionTitle title='Eventos' />
+      <Intersected className='section-text' active='active-paragraph'>
+        <p>
+          Como líderes del sector F&B organizamos eventos propios y participamos en eventos de otros actores para debatir, compartir perspectivas y horizontes y contribuir a su posicionamiento y crecimiento económico. Aquí puedes consultar los próximos eventos en los que estaremos presentes
+        </p>
+      </Intersected>
       <div className="events">
         <div className="events-slider">
-        <div
-          className="event-slide"
-          id="events-calendar"
-        >
-          <DatePicker onDateSelect={handleDateSelect} />
-        </div>
-        <div
-          className="event-slide"
-          id="events-list-container"
-        >
-          <h3 className='section-subtitle'>{subtitle}</h3>
-          {selectedDate && (
-            <button onClick={clearFilter} className='clear-filter-btn'>Limpiar filtro</button>
-          )}
-          {filteredEvents.length === 0 ? (
-            <p className='no-events-error'>No hay eventos para el día seleccionado.</p>
-          ) : (
-            <ul className="events-list">
-              {filteredAndSortedEvents.map((event) => (
-                <li className="event-container" key={event.id}>
-                  <div className="event">
-                    <div className="event-name-container">
-                      <h5 className="event-name">{event.title}</h5>
-                      <p className='event-date'>{event.date.getDate()}.{event.date.getMonth() + 1}.{event.date.getFullYear()}</p>
-                      <p className="event-desc">{event.description}</p>
+          <Intersected
+            className="event-slide"
+            active='intersected-slide'
+            id="events-calendar"
+            threshold={0.5}
+          >
+            <DatePicker onDateSelect={handleDateSelect} />
+          </Intersected>
+          <Intersected
+            className="event-slide"
+            active='intersected-slide'
+            id="events-list-container"
+            threshold={0.1}
+          >
+            <h3 className='section-subtitle'>{subtitle}</h3>
+            {selectedDate && (
+              <button onClick={clearFilter} className='clear-filter-btn'>Limpiar filtro</button>
+            )}
+            {filteredEvents.length === 0 ? (
+              <p className='no-events-error'>No hay eventos para el día seleccionado.</p>
+            ) : (
+              <ul className="events-list">
+                {filteredAndSortedEvents.map((event) => (
+                  <li className="event-container" key={event.id}>
+                    <div className="event">
+                      <div className="event-name-container">
+                        <h5 className="event-name">{event.title}</h5>
+                        <p className='event-date'>{event.date.getDate()}.{event.date.getMonth() + 1}.{event.date.getFullYear()}</p>
+                        <p className="event-desc">{event.description}</p>
+                      </div>
+                      <Link href={event.link} className="event-link"><p className='link-text'>Ver más</p></Link>
                     </div>
-                    <Link href={event.link} className="event-link"><p className='link-text'>Ver más</p></Link>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-          </div>
-          
+                  </li>
+                ))}
+              </ul>
+            )}
+          </Intersected>
         </div>
       </div>
     </section>

@@ -1,14 +1,16 @@
 "use client"
 
-import { useState } from 'react';
-
 import styles from '@/app/(secciones)/asociados/asociados.module.scss';
-import Button from '@/app/ui/button';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import data from '@/data/countries.json';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import data from '@/data/countries.json'
-import Image from 'next/image';
+import SectionTitle from '@/app/ui/sectionTitle';
+import Intersected from '@/app/components/layout/Intersected';
+import Button from '@/app/ui/button';
 
 const partners = [
     {
@@ -82,7 +84,7 @@ const partner = [
         name: "telefono"
     },
     {
-        label: "LinkedIn",
+        label: "LinkedIn (enlace)",
         type: "text",
         name: "linkedin"
     },
@@ -124,14 +126,19 @@ export default function Members() {
       };
 
     return(
-        <section className="main-wrapper board-page">
+        <section className="main-wrapper">
             <header className={styles.section_header}>
-                <h2 className={styles.section_title}>¿Quién compone AIDABE?</h2>
-                <p className={styles.section_subtitle}>
-                    Somos una asociación que reúne a más de 1000 profesionales altamente cualificados del sector de Alimentos y Bebidas de España y Latinoamérica. Nuestros miembros están comprometidos con la especialización y profesionalización de un sector en crecimiento que aporta un valor significativo a la sociedad y a la economía. Creemos firmemente en el poder de la colaboración y el intercambio de conocimientos para impulsar la innovación y el progreso en nuestra industria. En AIDABE, estamos dedicados a promover la excelencia, la ética y el desarrollo profesional en el sector de Alimentos y Bebidas.
-                </p>
+                <SectionTitle title='¿Quién compone AIDABE?' />
+                <Intersected
+                    className={styles.section_subtitle}
+                    active={styles.active_subtitle}
+                >
+                    <p>
+                        Somos una asociación que reúne a más de 1000 profesionales altamente cualificados del sector de Alimentos y Bebidas de España y Latinoamérica. Nuestros miembros están comprometidos con la especialización y profesionalización de un sector en crecimiento que aporta un valor significativo a la sociedad y a la economía. Creemos firmemente en el poder de la colaboración y el intercambio de conocimientos para impulsar la innovación y el progreso en nuestra industria. En AIDABE, estamos dedicados a promover la excelencia, la ética y el desarrollo profesional en el sector de Alimentos y Bebidas.
+                    </p>
+                </Intersected>
             </header>
-            <div className={styles.partners_types}>
+            <Intersected className={styles.partners_types} active={styles.active_section} threshold={0.1}>
                 <div className={styles.partners_description}>
                     <h3 className={styles.section_subtitle}>Tipos de socios</h3>
                     <p className={styles.section_text}>En AIDABE ubicamos a nuestros socios en 4 categorías: Senior Certificados, Senior, Junior y Amigos de AIDABE.</p>
@@ -159,13 +166,13 @@ openIndex === index ? styles.open_description_cont : ''}`}>
                         ))}
                     </div>
                 </div>
-            </div>
+            </Intersected>
             <div className={styles.benefits}>
-                <div className={styles.benefits_description}>
+                <Intersected className={styles.benefits_description} active={styles.active_section} threshold={0.5}>
                     <h3 className={styles.section_subtitle}>Beneficios de asociado</h3>
                     <p className={styles.section_text}>Todos nuestros socios gozan de los siguientes beneficios:</p>
-                </div>
-                <div className={styles.benefits_layout}>
+                </Intersected>
+                <Intersected className={styles.benefits_layout}  active={styles.active_section} threshold={0.2}>
                     {benefits.map((benefit, index) => (
                         <div className={styles.benefit} key={index}>
                             <div className={styles.benefit_img}>
@@ -180,10 +187,10 @@ openIndex === index ? styles.open_description_cont : ''}`}>
                             </div>
                         </div>
                     ))}
-                </div>
+                </Intersected>
             </div>
             <div className={styles.contact}>
-                <div className={styles.contact_action}>
+                <Intersected className={styles.contact_action} active={styles.active_section} threshold={0.1}>
                     <h3 className={styles.section_subtitle}>¿Quieres formar parte?</h3>
                         <div
                         className={styles.form_container}
@@ -235,10 +242,12 @@ openIndex === index ? styles.open_description_cont : ''}`}>
                                     required
                                 />
                             </label>
-                            <button type="submit" className={styles.submit_form}>Enviar</button>
+                            <div className={styles.submit_container}>
+                                <Button text='enviar' type='submit' />
+                            </div>
                         </form>
                     </div>
-                </div>
+                </Intersected>
             </div>
         </section>
     )

@@ -2,6 +2,8 @@ import styles from '@/app/(secciones)/asociacion/asociacion.module.scss';
 
 import Button from '@/app/ui/button';
 import BoardLayout from '@/app/ui/BoardLayout';
+import SectionTitle from '@/app/ui/sectionTitle';
+import Intersected from '@/app/components/layout/Intersected';
 
 export default function Board() {
     const board = [
@@ -41,17 +43,16 @@ export default function Board() {
     return(
         <section className="main-wrapper board-page">
             <header className={styles.section_header}>
-                <h2 className={styles.section_title}>La asociación</h2>
+                <SectionTitle title='La asociación' />
             </header>
-            <section className={styles.section}>
-                <h3 className={styles.section_subtitle}>Sobre AIDABE</h3>
+            <Intersected className={`${styles.section} ${styles.text_container}`} active={styles.active_section} threshold={0.1}>
                 <p className={styles.section_text}>
-                    La Asociación Iberoamericana de Directoras y Directores de Alimentos y Bebidas Jefaturas Ejecutivas de Cocina, nace con el objetivo de promover la labor, establecer relaciones profesionales, y fomentar el intercambio de información, entre los perfiles directivos de la industria de Servicios de Alimentación y Bebidas / Food Service Industry.
+                    La Asociación Iberoamericana de Directoras y Directores de Alimentos y Bebidas Jefaturas Ejecutivas de Cocina, nace con el objetivo de <strong>promover la labor, establecer relaciones profesionales, y fomentar el intercambio de información</strong> entre los perfiles directivos de la industria de Servicios de Alimentación y Bebidas / Food Service Industry.
                 </p>
                 <p className={styles.section_text}>
                     Entre sus actividades están la promoción de su figura, actividades y mejores prácticas; la representación de sus intereses ante empresas, instituciones y la sociedad; y la inversión en procesos de I+D+i vinculados a estas actividades, todo ello con criterios de sostenibilidad social, ambiental, y económica, son igualmente, parte de nuestra misión.
                 </p>
-            </section>
+            </Intersected>
             <section className={`${styles.section} ${styles.proposito}`}>
                 <h3 className={styles.section_subtitle}>Nuestro propósito</h3>
                 <p className={styles.section_text}>
@@ -61,7 +62,7 @@ export default function Board() {
                     <Button id="codigo-etico-btn" style="default" text="Código ético" />
                 </a>
             </section>
-            <section className={styles.section}>
+            <section className={`${styles.section} ${styles.objetivos}`}>
                 <h3 className={styles.section_subtitle}>Nuestros objetivos</h3>
                 <ul className={styles.section_list}>
                     <li className={styles.list_item}>

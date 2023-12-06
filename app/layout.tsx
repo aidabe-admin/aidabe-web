@@ -6,6 +6,8 @@ import CookieBanner from '@/app/components/CookieBanner';
 import Header from '@/app/components/layout/Header';
 import Footer from '@/app/components/layout/Footer';
 import FloatingButton from './ui/flyingButton';
+import { Suspense } from 'react';
+import Loading from './loading';
 
 export const metadata: Metadata = {
   title: 'AIDABE',
@@ -21,11 +23,13 @@ export default function RootLayout({
     <html lang="es">
       <GoogleAnalytics GA_MEASUREMENT_ID={process.env.GA_MEASUREMENT_ID || ""} />
       <body>
-        <Header />
-        {children}
-        <CookieBanner />
-        <Footer />
-        <FloatingButton id='to-top-btn' />
+          <Header />
+          <Suspense fallback={<Loading />}>
+            {children}
+          </Suspense>
+          <CookieBanner />
+          <Footer />
+          <FloatingButton id='to-top-btn' />
       </body>
     </html>
   )
