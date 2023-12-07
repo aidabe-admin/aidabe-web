@@ -54,17 +54,24 @@ export default function Board() {
                 </p>
             </Intersected>
             <section className={`${styles.section} ${styles.proposito}`}>
-                <h3 className={styles.section_subtitle}>Nuestro propósito</h3>
-                <p className={styles.section_text}>
-                    Propósito: Buscar el reconocimiento social, la mejora profesional y la defensa de los intereses del colectivo de profesionales al frente de una Dirección de Alimentos y Bebidas (AyB / F&B), así como de las Jefaturas Ejecutivas de Cocina en la Península Ibérica y Latinoamérica.
-                </p>
+                <Intersected className={styles.subtitle} active={styles.active_subtitle} threshold={0.5}>
+                    <h3 className={styles.section_subtitle}>Nuestro propósito</h3>
+                </Intersected>
+                <Intersected className={styles.text} active={styles.active_text} threshold={0.5}>
+                    <p className={styles.section_text}>
+                        Propósito: Buscar el reconocimiento social, la mejora profesional y la defensa de los intereses del colectivo de profesionales al frente de una Dirección de Alimentos y Bebidas (AyB / F&B), así como de las Jefaturas Ejecutivas de Cocina en la Península Ibérica y Latinoamérica.
+                    </p>
+                </Intersected>
                 <a href="/codigo-etico.pdf" download={true}>
                     <Button id="codigo-etico-btn" style="default" text="Código ético" />
                 </a>
             </section>
             <section className={`${styles.section} ${styles.objetivos}`}>
-                <h3 className={styles.section_subtitle}>Nuestros objetivos</h3>
-                <ul className={styles.section_list}>
+                <Intersected className={styles.subtitle} active={styles.active_subtitle} threshold={0.1}>
+                    <h3 className={styles.section_subtitle}>Nuestros objetivos</h3>
+                </Intersected>
+                <Intersected className={styles.text} active={styles.active_text} threshold={0.1}>
+                    <ul className={styles.section_list}>
                     <li className={styles.list_item}>
                         <div className={styles.aidabe_bullet}></div>
                         <p className={styles.list_text}>
@@ -89,7 +96,8 @@ export default function Board() {
                             Defender los intereses de nuestros asociados, trabajando para garantizar que sus necesidades y preocupaciones sean escuchadas y atendidas en el sector de la hostelería.
                         </p>
                     </li>
-                </ul>
+                    </ul>
+                </Intersected>
             </section>
             <div className={styles.board_wrapper}>
                 <BoardLayout board={board} />
