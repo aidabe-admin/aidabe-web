@@ -1,21 +1,24 @@
+"use client"
+
 import styles from '@/app/(secciones)/actualidad/[articles]/post.module.scss'
 
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 import NotFound from "@/app/not-found";
 import posts from "@/data/blog-posts.json";
-import Post from "@/app/content/post-1.mdx";
 
 export default function Page({ params }: { params: { articles: string } }) {
   const getPost = posts.find((post) => post.link === `/${params.articles}`);
+  const DynamicPost = dynamic(() => import(`@/app/content/blog/${getPost?.post}.mdx`), {ssr: false});
 
   return (
     <main className="post-wrapper">
-      {getPost ? (
+      {getPost?.post ? (
         <>
           <div className="post-article">
-            <Post />
+            <DynamicPost />
           </div>
           <div className="latest-posts-cont">
             <div className="latest-layout">

@@ -2,36 +2,36 @@
     {
       "title": "Aidabe en HIP",
       "image": "/post-1.jpg",
-      "post": "@/app/content/post-1.mdx",
       "link": "/aidabe-en-hip",
+      "post": "event-1",
       "alt": "Lorem ipsum dolor sit amet."
     },
     {
-      "title": "Título 2",
-      "image": "/post-2.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
-      "link": "/titulo-2",
+      "title": "Evento número 2",
+      "image": "/post-4.jpg",
+      "link": "/evento-2",
+      "post": "event-2",
       "alt": "Lorem ipsum dolor sit amet."
     },
     {
-      "title": "Título 3",
-      "image": "/post-3.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
-      "link": "/titulo-3",
+      "title": "Evento número 3",
+      "image": "/post-4.jpg",
+      "link": "/evento-3",
+      "post": "event-3",
       "alt": "Lorem ipsum dolor sit amet."
     },
     {
-      "title": "Título 4",
-      "image": "/post-3.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
-      "link": "/titulo-4",
+      "title": "Evento número 4",
+      "image": "/post-4.jpg",
+      "link": "/evento-4",
+      "post": "event-4",
       "alt": "Lorem ipsum dolor sit amet."
     },
     {
-      "title": "Título 5",
-      "image": "/post-3.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
-      "link": "/titulo-5",
+      "title": "Evento número 5",
+      "image": "/post-4.jpg",
+      "link": "/evento-5",
+      "post": "event-5",
       "alt": "Lorem ipsum dolor sit amet."
     }
   ]
